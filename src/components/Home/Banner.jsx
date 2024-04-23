@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner_1 from "/images/banner1.jpg";
 import banner_2 from "/images/banner2.png";
 import banner_3 from "/images/banner3.png";
@@ -21,9 +22,9 @@ const Banner = () => {
               Best Online Quran and Qira'at Learning <br /> Platform (English,
               Urdu, Hindi, Bangla, and Arabic Medium)
             </p>
-            <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg outline outline-orange-500 text-orange-500 bg-transparent hover:bg-white">
+           <Link to="/form"> <button className="btn btn-xs mt-9 sm:btn-sm md:btn-md lg:btn-lg outline outline-orange-500 text-orange-500 bg-transparent hover:bg-[#1a103d] hover:text-white">
               Admission Open
-            </button>
+            </button></Link>
           </div>
         </div>
         <div className="absolute flex right-10 top-3/4">
