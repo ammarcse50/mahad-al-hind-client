@@ -105,10 +105,8 @@ const NavBar = () => {
         <div className="w-6 rounded-full">
           {user ? (
             <>
-              <span className="flex items-center text-sm  gap-3">
-                <img src={dp} alt="img" />
-                {user.email}
-              </span>
+              <img src={dp} className="ml-12" alt="img" />{" "}
+              <span className="">{user.email}</span>
             </>
           ) : (
             <RiContactsFill className="text-[#18f90c]" />

@@ -1,9 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Aos from "aos";
 
 const Login = () => {
+    useEffect(() => {
+        // Initialize AOS when the component mounts
+        Aos.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+          once: true // Whether animation should happen only once
+        });
+      }, []);
+    const notify = () => toast("Login Success!");
   const { loginAccount } = useContext(AuthContext);
 
   const handleLogin = (e) => {
@@ -21,7 +33,7 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form onSubmit={handleLogin} className="card-body md:w-1/2 ">
+      <form  data-aos="fade-up" onSubmit={handleLogin} className="card-body md:w-1/2 ">
          <h2 className="text-3xl font-bold text-white text-center">Login Now!</h2>
         <div className="form-control ">
           <label className="label">
@@ -53,7 +65,7 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-white text-xl">Login</button>
+          <button onClick={notify} className="btn  text-white text-xl">Login</button>
         </div>
 
         <p className="text-black text-center font-bold mt-6">
@@ -63,6 +75,7 @@ const Login = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };

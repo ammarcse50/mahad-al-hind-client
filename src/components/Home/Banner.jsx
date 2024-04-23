@@ -3,8 +3,18 @@ import banner_1 from "/images/banner1.jpg";
 import banner_2 from "/images/banner2.png";
 import banner_3 from "/images/banner3.png";
 import banner_4 from "/images/banner4.png";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react";
 const Banner = () => {
+    useEffect(() => {
+        // Initialize AOS when the component mounts
+        AOS.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+          once: true // Whether animation should happen only once
+        });
+      }, []);
   return (
     <div className="carousel w-full">
       <div
@@ -13,7 +23,7 @@ const Banner = () => {
       >
         <img src={banner_4} className="md:w-full   rounded-xl md:h-[600px] " />
 
-        <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
+        <div data-aos="fade-in" className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl ">
           <div className="space-y-6 ml-9">
             <p className="md:text-2xl font-semibold md:mt-32 mt-10 text-white">
               ASSALAMUALAIKUM, WELCOME TO
@@ -34,11 +44,11 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="absolute flex right-10 bottom-14 md:top-3/4">
-          <a href="#slide4" className="btn btn-circle bg-white mr-5">
+        <div data-aos="fade-left" className="absolute flex right-10 bottom-14 md:top-3/4">
+          <a href="#slide4" className="btn btn-circle bg-orange-500 mr-5">
             ❮
           </a>
-          <a href="#slide2" className="btn btn-circle bg-white">
+          <a href="#slide2" className="btn btn-circle bg-orange-500">
             ❯
           </a>
         </div>
@@ -67,10 +77,10 @@ const Banner = () => {
           </div>
         </div>
         <div className="absolute flex right-10 bottom-14 md:top-3/4">
-          <a href="#slide1" className="btn btn-circle bg-white mr-5">
+          <a href="#slide1" className="btn btn-circle bg-orange-500 mr-5">
             ❮
           </a>
-          <a href="#slide3" className="btn btn-circle bg-white">
+          <a href="#slide3" className="btn btn-circle bg-orange-500">
             ❯
           </a>
         </div>
@@ -99,16 +109,16 @@ const Banner = () => {
           </div>
         </div>
         <div className="absolute flex right-10 bottom-14 md:top-3/4">
-          <a href="#slide2" className="btn btn-circle bg-white mr-5">
+          <a href="#slide2" className="btn btn-circle bg-orange-500 mr-5">
             ❮
           </a>
-          <a href="#slide4" className="btn btn-circle bg-white">
+          <a href="#slide4" className="btn btn-circle bg-orange-500">
             ❯
           </a>
         </div>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src={banner_1} className="md:w-full   rounded-xl md:h-[600px] " />
+        <img src={banner_2} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
           <div className="space-y-6 ml-9">
@@ -131,10 +141,10 @@ const Banner = () => {
           </div>
         </div>
         <div className="absolute flex right-10 bottom-14 md:top-3/4">
-          <a href="#slide3" className="btn btn-circle bg-white mr-5">
+          <a href="#slide3" className="btn btn-circle bg-orange-500 mr-5">
             ❮
           </a>
-          <a href="#slide1" className="btn btn-circle bg-white">
+          <a href="#slide1" className="btn btn-circle bg-orange-500">
             ❯
           </a>
         </div>

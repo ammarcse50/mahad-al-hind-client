@@ -1,7 +1,20 @@
+import Aos from "aos";
 import axios from "axios";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
-const Contact = () => {
+const Contact = () => { 
+    
+    useEffect(() => {
+        // Initialize AOS when the component mounts
+        Aos.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+          once: true // Whether animation should happen only once
+        });
+      }, []);
   const handleContact = (e) => {
+   
     e.preventDefault();
 
     const form = e.target;
@@ -17,7 +30,11 @@ const Contact = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          alert("Message inserted Successful");
+            Swal.fire({
+                title: "We got your comment!",
+                text: "Thanks",
+                icon: "success"
+              });
         }
       })
       .catch((error) => console.log(error));
@@ -26,7 +43,7 @@ const Contact = () => {
   return (
     <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
       
-      <form onSubmit={handleContact} className="card-body md:w-1/2 ">
+      <form data-aos="fade-up" onSubmit={handleContact} className="card-body md:w-1/2 ">
       <p className="text-white text-center font-semibold">CONTACT WITH US</p>
       <h2 className="text-5xl font-bold text-center text-white mb-5">Send your email</h2>
         <div className="form-control ">
@@ -64,7 +81,7 @@ const Contact = () => {
           ></textarea>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-white text-xl">Submit</button>
+          <button className="btn  text-white text-xl">Submit</button>
         </div>
       </form>
     </div>

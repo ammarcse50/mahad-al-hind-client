@@ -1,6 +1,18 @@
+import Aos from "aos";
 import axios from "axios";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 
 const Admission = () => {
+
+  useEffect(() => {
+    // Initialize AOS when the component mounts
+    Aos.init({
+      duration: 1000, // Animation duration
+      easing: 'ease-in-out', // Easing function
+      once: true // Whether animation should happen only once
+    });
+  }, []);
   const handleSubmitCourse = (e) => {
     e.preventDefault();
 
@@ -29,20 +41,24 @@ const Admission = () => {
     console.log(data);
 
     axios
-      .post("https://localhost:5000/students", data)
+      .post("http://localhost:5000/students", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          alert("data inserted successful");
+          Swal.fire({
+            title: "Successfully Admitted!",
+            text: "Thank You",
+            icon: "success"
+          });
         }
       })
       .catch((error) => console.log(error));
   };
   return (
     <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form onSubmit={handleSubmitCourse} className="card-body ">
+      <form  data-aos="fade-up" onSubmit={handleSubmitCourse} className="card-body ">
         {" "}
-        <div className="text-center ">
+        <div  className="text-center ">
           <h1 className="text-5xl font-bold text-black">
             Student Admission Form
           </h1>
@@ -147,7 +163,7 @@ const Admission = () => {
           </select>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-white text-xl">Submit</button>
+          <button className="btn  text-white text-xl">Submit</button>
         </div>
       </form>
     </div>

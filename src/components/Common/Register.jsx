@@ -1,10 +1,22 @@
 import axios from "axios";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
-
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Aos from "aos";
 
 const Register = () => {
+    useEffect(() => {
+        // Initialize AOS when the component mounts
+        Aos.init({
+          duration: 1000, // Animation duration
+          easing: 'ease-in-out', // Easing function
+          once: true // Whether animation should happen only once
+        });
+      }, []);
+    const notify = () => toast("Created Account Successful!");
   const { createAccount } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -26,14 +38,15 @@ const Register = () => {
       .catch((error) => console.log(error));
 
     axios
-      .post(
-        "https://mahad-al-hind-server-side-production.up.railway.app/users",
-        data
-      )
+      .post("http://localhost:5000/users", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          alert("user inserted successful");
+          Swal.fire({
+            title: "Account Created Succesfully",
+            text: "You clicked the button!",
+            icon: "success",
+          });
         }
       })
       .catch((error) => console.log(error));
@@ -41,8 +54,10 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form onSubmit={handleRegister} className="card-body md:w-1/2 ">
-         <h2 className="text-3xl font-bold text-white text-center">Register Now!</h2>
+      <form  data-aos="fade-up" onSubmit={handleRegister} className="card-body md:w-1/2 ">
+        <h2 className="text-3xl font-bold text-white text-center">
+          Register Now!
+        </h2>
         <div className="form-control ">
           <label className="label">
             <span className="label-text text-black">Username</span>
@@ -85,7 +100,9 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-white text-xl">Register</button>
+          <button onClick={notify} className="btn  text-white text-xl">
+            Register
+          </button>
         </div>
 
         <p className="text-black text-center mt-6 font-bold">
@@ -95,6 +112,7 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };
