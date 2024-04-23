@@ -56,8 +56,13 @@ const NavBar = () => {
           </a>
         </>
       ) : (
-        <NavLink to="/login">
-          <button className="text-white text-xl">Login</button>
+        <NavLink
+          to="/login"
+          className={({ isActive }) => {
+            return isActive ? "text-orange-500 hover:text-xl " : "text-white";
+          }}
+        >
+          <li className="text-xl ">Login</li>
         </NavLink>
       )}
     </>
@@ -100,7 +105,6 @@ const NavBar = () => {
         <div className="w-6 rounded-full">
           {user ? (
             <>
-             
               <span className="flex items-center text-sm  gap-3">
                 <img src={dp} alt="img" />
                 {user.email}
