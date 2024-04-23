@@ -42,6 +42,7 @@ const Register = () => {
   return (
     <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
       <form onSubmit={handleRegister} className="card-body w-1/2 ">
+         <h2 className="text-3xl font-bold text-white text-center">Register Now!</h2>
         <div className="form-control ">
           <label className="label">
             <span className="label-text text-black">Username</span>

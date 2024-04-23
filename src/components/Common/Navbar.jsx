@@ -2,11 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import logo from "../../../public/images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { RiContactsFill } from "react-icons/ri";
+import dp from "../../../public/images/def.png";
 
 import { AuthContext } from "./AuthProvider";
 
 const NavBar = () => {
-    
   const { logOut, user } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -20,10 +20,10 @@ const NavBar = () => {
       <NavLink
         to="/"
         className={({ isActive }) => {
-          return isActive ? "text-orange-500 hover:text-xl " : "text-white";
+          return isActive ? "text-orange-500  hover:text-xl " : "text-white";
         }}
       >
-        <li>Home</li>
+        <li className="text-xl">Home</li>
       </NavLink>
       <NavLink
         to="/courses"
@@ -31,7 +31,7 @@ const NavBar = () => {
           return isActive ? "text-orange-500 hover:text-xl" : "text-white";
         }}
       >
-        <li>Courses</li>
+        <li className="text-xl">Courses</li>
       </NavLink>
       <NavLink
         to="/form"
@@ -39,7 +39,7 @@ const NavBar = () => {
           return isActive ? "text-orange-500 hover:text-xl" : "text-white";
         }}
       >
-        <li>Admission Form</li>
+        <li className="text-xl">Admission Form</li>
       </NavLink>
       <NavLink
         to="/contact"
@@ -47,18 +47,17 @@ const NavBar = () => {
           return isActive ? "text-orange-500 hover:text-xl " : "text-white";
         }}
       >
-        <li>Contact</li>
+        <li className="text-xl">Contact</li>
       </NavLink>
       {user ? (
         <>
-          <a onClick={handleLogOut} className="text-white">
+          <a onClick={handleLogOut} className="text-white text-xl">
             Sign out
-          </a>{" "}
-          <span>{user.email}</span>
+          </a>
         </>
       ) : (
         <NavLink to="/login">
-          <button className="text-white">Login</button>
+          <button className="text-white text-xl">Login</button>
         </NavLink>
       )}
     </>
@@ -98,13 +97,18 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 gap-7">{navlinks}</ul>
       </div>
       <div className="navbar-end">
-        <div className="w-10 rounded-full">
-          <RiContactsFill className="text-[#5755FE]" />
-          {/* {user ? (
-            <img alt={user.email} src={user.photourl} />
-          ) : ( */}
-
-          {/* )} */}
+        <div className="w-6 rounded-full">
+          {user ? (
+            <>
+             
+              <span className="flex items-center text-sm  gap-3">
+                <img src={dp} alt="img" />
+                {user.email}
+              </span>
+            </>
+          ) : (
+            <RiContactsFill className="text-[#18f90c]" />
+          )}
         </div>
       </div>
     </div>
