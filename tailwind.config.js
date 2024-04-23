@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  plugins: [
+    
+    require('tailwind-scrollbar'),
+],
   daisyui: {
     themes: ["light", "dark", "cupcake","synthwave"],
   },

@@ -5,7 +5,7 @@ import Footer from '../Common/Footer';
 
 const Main = () => {
     return (
-        <div className='font-saira'>
+        <div className='font-saira '>
             <div className='max-w-7xl mx-auto'> 
             <NavBar></NavBar>
             <Outlet></Outlet> 
@@ -13,6 +13,7 @@ const Main = () => {
             </div>
           <Footer></Footer>
         </div>
+       
     );
 };
 
