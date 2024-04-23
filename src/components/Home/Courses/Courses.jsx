@@ -11,7 +11,7 @@ const Courses = () => {
     });
   }, []);
   return (
-    <div className="mb-10">
+    <div className="mb-10 mt-10">
       <div className="md:text-5xl  text-3xl space-y-3 text-center">
         <h2>OUR QIRAAT COURSES</h2>
         <h2>(মা'হাদের কোর্সসমূহ)</h2>
