@@ -53,10 +53,10 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-xl">Login</button>
+          <button className="btn btn-primary text-white text-xl">Login</button>
         </div>
 
-        <p className="text-black text-center mt-6">
+        <p className="text-black text-center font-bold mt-6">
           New to here ?{" "}
           <Link to="/register" className="text-blue-100 font-semibold">
             Register

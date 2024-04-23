@@ -85,10 +85,10 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-xl">Register</button>
+          <button className="btn btn-primary text-white text-xl">Register</button>
         </div>
 
-        <p className="text-black text-center mt-6">
+        <p className="text-black text-center mt-6 font-bold">
           Already Register?{" "}
           <Link to="/login" className="text-blue-100 font-semibold">
             Login

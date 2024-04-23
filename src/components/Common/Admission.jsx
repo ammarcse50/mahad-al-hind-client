@@ -32,16 +32,15 @@ const Admission = () => {
       .post("https://localhost:5000/students", data)
       .then((res) => {
         console.log(res.data);
-        if(res.data.insertedId)
-        {
-            alert('data inserted successful')
+        if (res.data.insertedId) {
+          alert("data inserted successful");
         }
       })
       .catch((error) => console.log(error));
   };
   return (
-    <div className="hero min-h-screen  bg-slate-50 rounded-xl">
-      <form onSubmit={handleSubmitCourse} className="card-body">
+    <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+      <form onSubmit={handleSubmitCourse} className="card-body ">
         {" "}
         <div className="text-center ">
           <h1 className="text-5xl font-bold text-black">
@@ -148,7 +147,7 @@ const Admission = () => {
           </select>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Submit</button>
+          <button className="btn btn-primary text-white text-xl">Submit</button>
         </div>
       </form>
     </div>

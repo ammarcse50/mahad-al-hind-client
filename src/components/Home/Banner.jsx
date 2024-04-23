@@ -7,15 +7,18 @@ import banner_4 from "/images/banner4.png";
 const Banner = () => {
   return (
     <div className="carousel w-full">
-      <div id="slide1" className="carousel-item relative w-full">
-        <img src={banner_4} className="w-full rounded-xl h-[600px] " />
+      <div
+        id="slide1"
+        className="carousel-item relative w-full md:h-[600px] h-[400px]"
+      >
+        <img src={banner_4} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
           <div className="space-y-6 ml-9">
-            <p className="text-2xl font-semibold mt-32 text-white">
+            <p className="md:text-2xl font-semibold md:mt-32 mt-10 text-white">
               ASSALAMUALAIKUM, WELCOME TO
             </p>
-            <h2 className="text-5xl  font-bold text-white ">
+            <h2 className="md:text-5xl text-3xl  font-bold text-white ">
               Mahadul Qira'at Al Hind
             </h2>
             <p className="text-2xl font-semibold  text-orange-500">
@@ -41,14 +44,14 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide2" className="carousel-item relative w-full">
-        <img src={banner_1} className="w-full rounded-xl h-[600px] " />
+        <img src={banner_1} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
           <div className="space-y-6 ml-9">
-            <p className="text-2xl font-semibold mt-32 text-white">
+            <p className="md:text-2xl font-semibold md:mt-32 mt-10 text-white">
               ASSALAMUALAIKUM, WELCOME TO
             </p>
-            <h2 className="text-5xl  font-bold text-white ">
+            <h2 className="md:text-5xl text-3xl  font-bold text-white ">
               Mahadul Qira'at Al Hind
             </h2>
             <p className="text-2xl font-semibold  text-orange-500">
@@ -73,14 +76,14 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide3" className="carousel-item relative w-full">
-        <img src={banner_3} className="w-full rounded-xl h-[600px] " />
+        <img src={banner_3} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
           <div className="space-y-6 ml-9">
-            <p className="text-2xl font-semibold mt-32 text-white">
+            <p className="md:text-2xl font-semibold md:mt-32 mt-10 text-white">
               ASSALAMUALAIKUM, WELCOME TO
             </p>
-            <h2 className="text-5xl  font-bold text-white ">
+            <h2 className="md:text-5xl text-3xl  font-bold text-white ">
               Mahadul Qira'at Al Hind
             </h2>
             <p className="text-2xl font-semibold  text-orange-500">
@@ -105,14 +108,14 @@ const Banner = () => {
         </div>
       </div>
       <div id="slide4" className="carousel-item relative w-full">
-        <img src={banner_2} className="w-full rounded-xl h-[600px] " />
+        <img src={banner_1} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl">
           <div className="space-y-6 ml-9">
-            <p className="text-2xl font-semibold mt-32 text-white">
+            <p className="md:text-2xl font-semibold md:mt-32 mt-10 text-white">
               ASSALAMUALAIKUM, WELCOME TO
             </p>
-            <h2 className="text-5xl  font-bold text-white ">
+            <h2 className="md:text-5xl text-3xl  font-bold text-white ">
               Mahadul Qira'at Al Hind
             </h2>
             <p className="text-2xl font-semibold  text-orange-500">
