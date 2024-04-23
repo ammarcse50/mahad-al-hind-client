@@ -7,7 +7,7 @@ import Main from "./components/Layout/Main";
 import Home from "./components/Home/Home";
 import Contact from "./components/Common/Contact";
 import AuthProvider from "./components/Common/AuthProvider";
-import Courses from "./components/Home/Courses";
+import Courses from "./components/Home/Courses/Courses";
 import Admission from "./components/Common/Admission";
 import Login from "./components/Common/Login";
 import Register from "./components/Common/Register";
