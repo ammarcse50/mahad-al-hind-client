@@ -6,10 +6,10 @@ const Footer = () => {
       <footer className="footer p-10 max-w-7xl mx-auto  text-base-content">
 
               
-  <aside>
+  <aside className="">
  
- <img src={logo} className="w-20 ml-20" alt="" />
- <p>Mahadul Qira'at Al Hind.<br/>Providing Knowledge Since  2022</p>
+ <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
+ <p className="ml-16 md:ml-0">Mahadul Qira'at Al Hind.<br/>Providing Knowledge Since  2022</p>
  </aside> 
  <nav>
    <h6 className="footer-title">Services</h6> 

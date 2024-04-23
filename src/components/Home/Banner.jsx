@@ -22,7 +22,7 @@ const Banner = () => {
               Best Online Quran and Qira'at Learning <br /> Platform (English,
               Urdu, Hindi, Bangla, and Arabic Medium)
             </p>
-           <Link to="/form"> <button className="btn btn-xs mt-9 sm:btn-sm md:btn-md lg:btn-lg outline outline-orange-500 text-orange-500 bg-transparent hover:bg-[#1a103d] hover:text-white">
+           <Link to="/form"> <button className="btn btn-xs mt-9 sm:btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent hover:bg-[#1a103d] hover:text-white hover:text-xl">
               Admission Open
             </button></Link>
           </div>

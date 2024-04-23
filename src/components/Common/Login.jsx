@@ -21,7 +21,7 @@ const Login = () => {
   };
   return (
     <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form onSubmit={handleLogin} className="card-body w-1/2 ">
+      <form onSubmit={handleLogin} className="card-body md:w-1/2 ">
          <h2 className="text-3xl font-bold text-white text-center">Login Now!</h2>
         <div className="form-control ">
           <label className="label">
@@ -53,7 +53,7 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary text-xl">Login</button>
         </div>
 
         <p className="text-black text-center mt-6">
