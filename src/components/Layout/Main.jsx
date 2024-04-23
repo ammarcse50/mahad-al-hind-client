@@ -5,7 +5,7 @@ import Footer from '../Common/Footer';
 
 const Main = () => {
     return (
-        <div>
+        <div className='font-saira'>
             <NavBar></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>
