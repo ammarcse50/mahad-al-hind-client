@@ -4,15 +4,14 @@ import { AuthContext } from "./AuthProvider";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Aos from "aos";
+import AOS from "aos";
 
 const Login = () => {
     useEffect(() => {
         // Initialize AOS when the component mounts
-        Aos.init({
+        AOS.init({
           duration: 1000, // Animation duration
-          easing: 'ease-in-out', // Easing function
-          once: true // Whether animation should happen only once
+          easing: "ease-in-out", // Easing function
         });
       }, []);
     const notify = () => toast("Login Success!");

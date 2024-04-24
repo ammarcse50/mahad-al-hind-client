@@ -8,8 +8,8 @@ const Courses = () => {
   useEffect(() => {
     // Initialize AOS when the component mounts
     Aos.init({
-
-      duration:1000
+      duration: 1000, // Animation duration
+      easing: "ease-in-out", // Easing function
      
     });
   }, []);
