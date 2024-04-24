@@ -38,6 +38,7 @@ const Footer = () => {
         </nav>
         <nav data-aos="fade-left">
           <h6 className="footer-title">SOCIAL MEDIA</h6>
+          <p className="mb-4">You can find us from social links given below</p>
           <div className="flex gap-5">
             <Link to="https://t.me/+919365262648">
               <span className="link link-hover">
@@ -49,7 +50,7 @@ const Footer = () => {
               </span>
             </Link>
             <Link to="https://api.whatsapp.com/send?phone=919365262648">
-              <span className="link link-hover">
+              <span className="link link-hover ">
                 <box-icon
                   name="whatsapp"
                   type="logo"
