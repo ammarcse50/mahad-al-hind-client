@@ -40,11 +40,11 @@ const Login = () => {
     });
   };
   return (
-    <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleLogin}
-        className="card-body md:w-1/2 "
+        className="card-body w-full md:w-1/2 "
       >
         <h2 className="text-3xl font-bold text-white text-center">
           Login Now!
