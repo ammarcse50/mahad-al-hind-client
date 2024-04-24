@@ -60,7 +60,7 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="text-[#159e53] text-xl  flex flex-row gap-4 justify-center pb-3">
-        <p className="text-white">
+        <p className="text-white md:px-0 px-5">
           © Copyright 2023 | All rights reserved by mahadul Qiraat Al Hind
         </p>
       </div>
