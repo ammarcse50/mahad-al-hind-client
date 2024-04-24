@@ -1,6 +1,6 @@
-
 import Banner from "./Banner";
-import Courses from "./Courses/Courses";
+
+import Courses from "../Home/Courses/Courses"
 
 const Home = () => {
   return (
