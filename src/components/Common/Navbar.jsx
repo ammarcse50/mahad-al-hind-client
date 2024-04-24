@@ -3,11 +3,13 @@ import logo from "../../../public/images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { RiContactsFill } from "react-icons/ri";
 import dp from "../../../public/images/def.png";
+import { useMediaQuery } from "react-responsive";
 
 import { AuthContext } from "./AuthProvider";
 
 const NavBar = () => {
   const { logOut, user } = useContext(AuthContext);
+  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
 
   const handleLogOut = () => {
     logOut()
@@ -92,6 +94,16 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 gap-9"
           >
             {navlinks}
+            <div className="w-6 rounded-full">
+              {user ? (
+                <>
+                  <img src={dp} className="ml-12" alt="img" />{" "}
+                  <span className="">{user.email}</span>
+                </>
+              ) : (
+                <RiContactsFill className="text-[#18f90c]" />
+              )}
+            </div>
           </ul>
         </div>
         <Link to="/" className="backdrop-blur-3xl bg-white-100">
@@ -101,18 +113,20 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7">{navlinks}</ul>
       </div>
-      <div className="navbar-end">
-        <div className="w-6 rounded-full">
-          {user ? (
-            <>
-              <img src={dp} className="ml-12" alt="img" />{" "}
-              <span className="">{user.email}</span>
-            </>
-          ) : (
-            <RiContactsFill className="text-[#18f90c]" />
-          )}
+      {isDesktop && (
+        <div className="md:navbar-end  ">
+          <div className="w-6 rounded-full ">
+            {user ? (
+              <>
+                <img src={dp} className="ml-12" alt="img" />{" "}
+                <span className="">{user.email}</span>
+              </>
+            ) : (
+              <RiContactsFill className="text-[#18f90c]" />
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
