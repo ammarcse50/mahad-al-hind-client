@@ -12,10 +12,16 @@ const Courses = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
+
   useEffect(() => {
-    axios.get("https://mahad-al-hind-server.vercel.app/courses").then((res) => {
-      setCourses(res.data);
-    });
+    
+     
+        axios
+        .get("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/courses")
+        .then((res) => {
+          setCourses(res.data);
+        });
+      
   }, []);
 
   return (

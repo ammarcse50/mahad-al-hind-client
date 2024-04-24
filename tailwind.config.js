@@ -1,24 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  plugins: [
-    
-    require('tailwind-scrollbar'),
-],
+
   daisyui: {
-    themes: ["light", "black", "cupcake","synthwave"],
+    themes: ["light", "black", "cupcake", "synthwave"],
   },
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-        fontFamily:{
-          saira:["Saira",'sans-serif']
-        }
+      fontFamily: {
+        saira: ["Saira", "sans-serif"],
+      },
+      mytheme:{
+          
+        "darkish": "#181818"
 
+      }
     },
   },
   plugins: [require("daisyui")],
-}
-
+};

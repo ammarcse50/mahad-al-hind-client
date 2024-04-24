@@ -7,6 +7,7 @@ const Main = () => {
     return (
         <div className='font-saira '>
             <div className='max-w-7xl mx-auto'> 
+            
             <NavBar></NavBar>
             <Outlet></Outlet> 
             

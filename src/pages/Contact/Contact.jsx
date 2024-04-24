@@ -23,7 +23,7 @@ const Contact = () => {
     const data = { username, email, message };
 
     axios
-      .post("https://mahad-al-hind-server.vercel.app/contact", data)
+      .post("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/contact", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

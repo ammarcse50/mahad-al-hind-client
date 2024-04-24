@@ -43,7 +43,7 @@ const Register = () => {
       .catch((error) => console.log(error));
 
     axios
-      .post("https://mahad-al-hind-server.vercel.app/users", data)
+      .post("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/users", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {

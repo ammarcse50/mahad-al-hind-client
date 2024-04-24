@@ -39,7 +39,7 @@ const Admission = () => {
     console.log(data);
 
     axios
-      .post("https://mahad-al-hind-server.vercel.app/students", data)
+      .post("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/students", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
