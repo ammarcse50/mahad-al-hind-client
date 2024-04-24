@@ -23,7 +23,8 @@ const Banner = () => {
         <img src={banner_4} className="md:w-full   rounded-xl md:h-[600px] " />
 
         <div
-          data-aos="fade-in"
+          data-aos="fade-right"
+          
           className="absolute left-0 top-0  h-full  w-full bg-gradient-to-r from-[#151515] to-white-0 rounded-xl "
         >
           <div className="space-y-6 ml-9">
