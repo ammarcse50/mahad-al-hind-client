@@ -19,7 +19,7 @@ const Courses = () => {
     });
   }, []);
   return (
-    <div className="mb-10 mt-10">
+    <div className="mb-10 mt-32">
       <div data-aos="fade-down" className="md:text-5xl  text-3xl space-y-3 text-center">
         <h2 data-aos="fade-right">OUR QIRAAT COURSES</h2>
         <h2 data-aos="fade-left"  >(মা'হাদের কোর্সসমূহ)</h2>

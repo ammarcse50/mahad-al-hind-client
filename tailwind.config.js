@@ -5,7 +5,7 @@ export default {
     require('tailwind-scrollbar'),
 ],
   daisyui: {
-    themes: ["light", "dark", "cupcake","synthwave"],
+    themes: ["light", "black", "cupcake","synthwave"],
   },
   content: [
     "./index.html",

@@ -40,7 +40,7 @@ const Login = () => {
     });
   };
   return (
-    <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero min-h-screen mt-10 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleLogin}
