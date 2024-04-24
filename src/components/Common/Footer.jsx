@@ -5,7 +5,7 @@ import "boxicons";
 const Footer = () => {
   return (
     <div className="bg-base-200 w-full ">
-      <footer className="footer p-10 max-w-7xl mx-auto  text-base-content">
+      <footer className="footer p-10 max-w-7xl mx-auto font-bold text-base-content">
         <aside className="">
           <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
           <p className="ml-16 md:ml-0">
