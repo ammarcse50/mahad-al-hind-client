@@ -3,18 +3,15 @@ import axios from "axios";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
 
-const Contact = () => { 
-    
-    useEffect(() => {
-        // Initialize AOS when the component mounts
-        Aos.init({
-          duration: 500, // Animation duration
-          easing: 'ease-in-out', // Easing function
-         
-        });
-      }, []);
+const Contact = () => {
+  useEffect(() => {
+    // Initialize AOS when the component mounts
+    Aos.init({
+      duration: 500, // Animation duration
+      easing: "ease-in-out", // Easing function
+    });
+  }, []);
   const handleContact = (e) => {
-   
     e.preventDefault();
 
     const form = e.target;
@@ -26,15 +23,15 @@ const Contact = () => {
     const data = { username, email, message };
 
     axios
-      .post("http://localhost:5000/contact", data)
+      .post("https://mahad-al-hind-server.vercel.app/contact", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-            Swal.fire({
-                title: "We got your comment!",
-                text: "Thanks",
-                icon: "success"
-              });
+          Swal.fire({
+            title: "We got your comment!",
+            text: "Thanks",
+            icon: "success",
+          });
         }
       })
       .catch((error) => console.log(error));
@@ -42,10 +39,15 @@ const Contact = () => {
 
   return (
     <div className="hero min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      
-      <form data-aos="fade-up" onSubmit={handleContact} className="card-body md:w-1/2 ">
-      <p className="text-white text-center font-semibold">CONTACT WITH US</p>
-      <h2 className="text-5xl font-bold text-center text-white mb-5">Send your email</h2>
+      <form
+        data-aos="fade-up"
+        onSubmit={handleContact}
+        className="card-body md:w-1/2 "
+      >
+        <p className="text-white text-center font-semibold">CONTACT WITH US</p>
+        <h2 className="text-5xl font-bold text-center text-white mb-5">
+          Send your email
+        </h2>
         <div className="form-control ">
           <label className="label">
             <span className="label-text text-black">Username</span>

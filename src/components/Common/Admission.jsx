@@ -4,13 +4,11 @@ import { useEffect } from "react";
 import Swal from "sweetalert2";
 
 const Admission = () => {
-
   useEffect(() => {
     // Initialize AOS when the component mounts
     Aos.init({
       duration: 500, // Animation duration
-      easing: 'ease-in-out', // Easing function
-     
+      easing: "ease-in-out", // Easing function
     });
   }, []);
   const handleSubmitCourse = (e) => {
@@ -41,14 +39,14 @@ const Admission = () => {
     console.log(data);
 
     axios
-      .post("http://localhost:5000/students", data)
+      .post("https://mahad-al-hind-server.vercel.app/students", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             title: "Successfully Admitted!",
             text: "Thank You",
-            icon: "success"
+            icon: "success",
           });
         }
       })
@@ -56,9 +54,13 @@ const Admission = () => {
   };
   return (
     <div className="hero min-h-screen mt-20 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form  data-aos="fade-up" onSubmit={handleSubmitCourse} className="card-body ">
+      <form
+        data-aos="fade-up"
+        onSubmit={handleSubmitCourse}
+        className="card-body "
+      >
         {" "}
-        <div  className="text-center ">
+        <div className="text-center ">
           <h1 className="text-5xl font-bold text-black">
             Student Admission Form
           </h1>

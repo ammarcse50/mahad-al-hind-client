@@ -43,7 +43,7 @@ const Register = () => {
       .catch((error) => console.log(error));
 
     axios
-      .post("http://localhost:5000/users", data)
+      .post("https://mahad-al-hind-server.vercel.app/users", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
