@@ -10,7 +10,7 @@ const Login = () => {
   useEffect(() => {
     // Initialize AOS when the component mounts
     AOS.init({
-      duration: 1000, // Animation duration
+      duration: 500, // Animation duration
       easing: "ease-in-out", // Easing function
     });
   }, []);
