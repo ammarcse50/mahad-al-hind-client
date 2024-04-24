@@ -3,19 +3,22 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
+import { getAuth, sendEmailVerification } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 const Register = () => {
-    useEffect(() => {
-        // Initialize AOS when the component mounts
-        AOS.init({
-          duration: 1000, // Animation duration
-          easing: "ease-in-out", // Easing function
-        });
-      }, []);
-    const notify = () => toast("Created Account Successful!");
+  const auth = getAuth(app);
+  useEffect(() => {
+    // Initialize AOS when the component mounts
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: "ease-in-out", // Easing function
+    });
+  }, []);
+  const notify = () => toast("Created Account Successful!");
   const { createAccount } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -33,6 +36,9 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
+        sendEmailVerification(auth).then(() => {
+          console.log("verification email send!");
+        });
       })
       .catch((error) => console.log(error));
 
@@ -53,7 +59,11 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <form  data-aos="fade-up" onSubmit={handleRegister} className="card-body md:w-1/2 ">
+      <form
+        data-aos="fade-up"
+        onSubmit={handleRegister}
+        className="card-body md:w-1/2 "
+      >
         <h2 className="text-3xl font-bold text-white text-center">
           Register Now!
         </h2>
