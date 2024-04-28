@@ -14,18 +14,17 @@ const Courses = () => {
   }, []);
 
   useEffect(() => {
-    
-     
-        axios
-        .get("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/courses")
-        .then((res) => {
-          setCourses(res.data);
-        });
-      
+    axios
+      .get(
+        "https://mahad-al-hind-server-production.up.railway.app/courses"
+      )
+      .then((res) => {
+        setCourses(res.data);
+      });
   }, []);
 
   return (
-    <div className="mb-10 mt-32">
+    <div className="mb-10 mt-32" id="courses">
       <div
         data-aos="fade-down"
         className="md:text-5xl  text-3xl space-y-3 text-center"
