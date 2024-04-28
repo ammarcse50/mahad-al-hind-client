@@ -2,6 +2,7 @@
 import { Outlet } from 'react-router-dom';
 import NavBar from '../Common/Navbar';
 import Footer from '../Common/Footer';
+import BreakingNews from '../Common/BreakingNews';
 
 const Main = () => {
     return (
@@ -9,9 +10,11 @@ const Main = () => {
             <div className='max-w-7xl mx-auto'> 
             
             <NavBar></NavBar>
+           
             <Outlet></Outlet> 
             
             </div>
+           
           <Footer></Footer>
         </div>
        
