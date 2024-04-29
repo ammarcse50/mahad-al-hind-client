@@ -40,8 +40,9 @@ const Footer = () => {
           <p className="mb-4">You can find us from social links given below</p>
           <div className="flex gap-5">
             <Link to="https://t.me/+919365262648">
-              <span className="link link-hover">
+              <span className="link link-hover ">
                 <box-icon
+                  className=" "
                   name="telegram"
                   type="logo"
                   color="#e68b07"

@@ -39,7 +39,7 @@ const Banner = () => {
             </p>
             <Link to="/form">
               {" "}
-              <button className="btn btn-xs hover:bg-[#1a103d] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
+              <button className="btn rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] hover:bg-[#0ecb34] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
                 Admission Open
               </button>
             </Link>
@@ -75,7 +75,7 @@ const Banner = () => {
             </p>
             <Link to="/form">
               {" "}
-              <button className="btn btn-xs hover:bg-[#1a103d] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
+              <button className="btn rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] hover:bg-[#0ecb34] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
                 Admission Open
               </button>
             </Link>
@@ -110,7 +110,7 @@ const Banner = () => {
             </p>
             <Link to="/form">
               {" "}
-              <button className="btn btn-xs hover:bg-[#1a103d] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
+              <button className="btn rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] hover:bg-[#0ecb34] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
                 Admission Open
               </button>
             </Link>
@@ -142,7 +142,7 @@ const Banner = () => {
             </p>
             <Link to="/form">
               {" "}
-              <button className="btn btn-xs hover:bg-[#1a103d] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
+              <button className="btn rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] hover:bg-[#0ecb34] hover:text-white hover:text-xl mt-9 btn-sm md:btn-md lg:btn-lg outline outline-orange-500 hover:outline-green-500 text-orange-500 bg-transparent ">
                 Admission Open
               </button>
             </Link>
