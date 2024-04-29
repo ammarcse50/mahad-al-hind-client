@@ -83,7 +83,7 @@ const Contact = () => {
           ></textarea>
         </div>
         <div className="form-control mt-6">
-          <button className="btn  text-white text-xl">Submit</button>
+          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] text-white text-xl">Submit</button>
         </div>
       </form>
     </div>

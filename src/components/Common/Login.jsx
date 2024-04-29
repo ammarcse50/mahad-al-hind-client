@@ -79,7 +79,7 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button  className="btn  text-white text-xl">
+          <button  className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] text-white text-xl">
             Login
           </button>
         </div>
@@ -93,14 +93,14 @@ const Login = () => {
 
         <div
           onClick={handleGoogleLogin}
-          className="border border-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 hover:bg-[#1a103d] hover:text-white"
+          className="border border-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]"
         >
           <box-icon
             name="google"
             type="logo"
             color="rgba(9,242,46,0.99)"
           ></box-icon>
-          <span>Login With Google</span>
+          <span >Login With Google</span>
         </div>
       </form>
       <ToastContainer />

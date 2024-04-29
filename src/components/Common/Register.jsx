@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen mt-32 md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero min-h-screen mt-28 md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleRegister}
@@ -109,7 +109,7 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button onClick={notify} className="btn  text-white text-xl">
+          <button onClick={notify} className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
             Register
           </button>
         </div>
