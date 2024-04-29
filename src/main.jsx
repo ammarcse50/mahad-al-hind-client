@@ -13,6 +13,7 @@ import Register from "./components/Common/Register";
 import Home from "../src/pages/Home/Home";
 import Courses from "../src/pages/Home/Courses/Courses";
 import Contact from "../src/pages/Contact/Contact";
+import StudentDashboard from "./pages/Dashboard/StudentDashboard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: <Admission></Admission>,
+      },
+      {
+        path: "/dashboard",
+        element: <StudentDashboard></StudentDashboard>,
       },
     ],
   },

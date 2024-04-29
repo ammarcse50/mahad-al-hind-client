@@ -13,7 +13,7 @@ const Footer = () => {
     });
   }, []);
   return (
-    <div className="bg-base-200 w-full p-4">
+    <div className="bg-base-200 w-full mt-32 p-4">
       <footer className="footer  max-w-7xl mx-auto font-bold text-base-content">
         <aside data-aos="fade-right" className="">
           <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
@@ -71,7 +71,7 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="text-[#159e53] text-xl  flex flex-row gap-4 justify-center pb-3">
-        <p className="text-white md:px-0 px-5">
+        <p className="text-black md:px-0 px-5 py-4">
           © Copyright 2023 | All rights reserved by Mohammad Ammar
         </p>
       </div>
