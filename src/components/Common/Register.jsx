@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen  max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero min-h-screen mt-32 md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleRegister}

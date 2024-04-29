@@ -14,7 +14,7 @@ const Login = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-  const notify = () => toast("Login Success!");
+  
   const { loginAccount, googleLogin } = useContext(AuthContext);
 
   const handleGoogleLogin = () => {
@@ -79,7 +79,7 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button onClick={notify} className="btn  text-white text-xl">
+          <button  className="btn  text-white text-xl">
             Login
           </button>
         </div>

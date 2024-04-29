@@ -13,7 +13,7 @@ const Footer = () => {
     });
   }, []);
   return (
-    <div className="bg-base-200 w-full">
+    <div className="bg-base-200 w-full p-4">
       <footer className="footer  max-w-7xl mx-auto font-bold text-base-content">
         <aside data-aos="fade-right" className="">
           <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
