@@ -1,9 +1,9 @@
-import React from 'react';
 
 const CourseEnroll = () => {
     return (
-        <div>
+        <div className='text-center text-5xl'>
             <h2>Courses Enrolled</h2>
+            <p > comming soon</p>
         </div>
     );
 };

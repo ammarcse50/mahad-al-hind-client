@@ -1,9 +1,10 @@
-import React from 'react';
 
 const PaymentHistory = () => {
     return (
-        <div>
+        <div className='text-center text-5xl'>
              <h2>Payment</h2>
+             <h2>Courses Enrolled</h2>
+             <p> comming soon</p>
         </div>
     );
 };

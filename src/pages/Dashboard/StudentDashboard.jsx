@@ -8,8 +8,8 @@ const StudentDashboard = () => {
       </h2>
 
       <div className="w-full mt-10 md:flex">
-        <div className="border md:w-1/4 flex flex-col ">
-          <div className="avatar ml-32 py-10">
+        <div className="border lg:w-1/4 flex flex-col ">
+          <div className="avatar ml-32 lg:ml-20 py-10">
             <div className="w-24 rounded-full ">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
@@ -34,7 +34,7 @@ const StudentDashboard = () => {
             </Link>
           </div>
         </div>
-        <div className="border md:w-2/3 px-5">
+        <div className="border md:w-2/3 lg:w-full px-5">
           <Outlet></Outlet>
         </div>
       </div>
