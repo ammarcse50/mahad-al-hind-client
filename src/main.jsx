@@ -14,6 +14,11 @@ import Home from "../src/pages/Home/Home";
 import Courses from "../src/pages/Home/Courses/Courses";
 import Contact from "../src/pages/Contact/Contact";
 import StudentDashboard from "./pages/Dashboard/StudentDashboard";
+import Profile from "./pages/Dashboard/Profile";
+
+import PaymentHistory from "./pages/Dashboard/PaymentHistory";
+
+import CourseEnroll from "./pages/Dashboard/CourseEnroll";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,7 +51,29 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <StudentDashboard></StudentDashboard>,
+        children:[
+
+          {
+            path: "/dashboard",
+            element: <Profile></Profile>
+          },
+          {
+            path: "/dashboard/profile",
+            element: <Profile></Profile>
+          },
+          {
+            path: "/dashboard/payment",
+            element: <PaymentHistory></PaymentHistory>
+          },
+          {
+            path: "/dashboard/courseenroll",
+            element: <CourseEnroll></CourseEnroll>
+          }
+        ]
+      
       },
+     
+    
     ],
   },
 ]);

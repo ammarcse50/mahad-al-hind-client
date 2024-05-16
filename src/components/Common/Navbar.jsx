@@ -22,7 +22,7 @@ const NavBar = () => {
       <NavLink
         to="/"
         className={({ isActive }) => {
-          return isActive ? "text-orange-500  hover:text-xl " : "text-black";
+          return isActive ? "text-orange-500  hover:text-xl " : "text-white";
         }}
       >
         <li className="text-xl">Home</li>
@@ -30,7 +30,7 @@ const NavBar = () => {
       <NavLink
         to="/courses"
         className={({ isActive }) => {
-          return isActive ? "text-orange-500 hover:text-xl" : "text-black";
+          return isActive ? "text-orange-500 hover:text-xl" : "text-white";
         }}
       >
         <li className="text-xl">Courses</li>
@@ -38,7 +38,7 @@ const NavBar = () => {
       <NavLink
         to="/form"
         className={({ isActive }) => {
-          return isActive ? "text-orange-500 hover:text-xl" : "text-black";
+          return isActive ? "text-orange-500 hover:text-xl" : "text-white";
         }}
       >
         <li className="text-xl">Admission Form</li>
@@ -46,22 +46,22 @@ const NavBar = () => {
       <NavLink
         to="/contact"
         className={({ isActive }) => {
-          return isActive ? "text-orange-500 hover:text-xl " : "text-black";
+          return isActive ? "text-orange-500 hover:text-xl " : "text-white";
         }}
       >
         <li className="text-xl">Contact</li>
       </NavLink>
       {user ? (
         <>
-          <a onClick={handleLogOut} className="text-black text-xl">
+          <a onClick={handleLogOut} className="text-white text-xl">
             Sign out
           </a>
           <NavLink
           to="/dashboard"
           className={({ isActive }) => {
-            return isActive ? "text-orange-500 hover:text-xl " : "text-black";
+            return isActive ? "text-orange-500 hover:text-xl " : "text-white";
           }}
-        ><a  className="text-black text-xl">
+        ><a  className="text-white text-xl">
            My Dashboard
           </a></NavLink>
           
@@ -70,7 +70,7 @@ const NavBar = () => {
         <NavLink
           to="/login"
           className={({ isActive }) => {
-            return isActive ? "text-orange-500 hover:text-xl " : "text-black";
+            return isActive ? "text-orange-500 hover:text-xl " : "text-white";
           }}
         >
           <li className="text-xl ">Login</li>

@@ -24,19 +24,19 @@ const Footer = () => {
           </p>
         </aside>
         <nav data-aos="fade-up">
-          <h6 className="footer-title">Services</h6>
+          <h6 className="footer-title text-white">Services</h6>
           <a className="link link-hover">Quran Course</a>
           <a className="link link-hover">Maqamat</a>
           <a className="link link-hover">Rewayat</a>
           <a className="link link-hover">Higher Qira'at Course</a>
         </nav>
         <nav data-aos="fade-up">
-          <h6 className="footer-title">Our Academy</h6>
+          <h6 className="footer-title text-white">Our Academy</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
         </nav>
         <nav data-aos="fade-left">
-          <h6 className="footer-title">SOCIAL MEDIA</h6>
+          <h6 className="footer-title text-white">SOCIAL MEDIA</h6>
           <p className="mb-4">You can find us from social links given below</p>
           <div className="flex gap-5">
             <Link to="https://t.me/+919365262648">
@@ -71,8 +71,8 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="text-[#159e53] text-xl  flex flex-row gap-4 justify-center pb-3">
-        <p className="text-black md:px-0 px-5 py-4">
-          © Copyright 2023 | All rights reserved by Mohammad Ammar
+        <p className="text-white md:px-0 px-5 py-4 mt-10">
+          © Copyright 2023 | All rights reserved by MAHAD AL HIND
         </p>
       </div>
     </div>

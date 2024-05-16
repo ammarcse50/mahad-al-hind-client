@@ -6,7 +6,7 @@ import Footer from '../Common/Footer';
 const Main = () => {
     return (
         <div className='font-saira '>
-      <NavBar></NavBar>
+             <NavBar></NavBar>
            
       
           
