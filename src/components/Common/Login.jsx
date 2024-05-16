@@ -46,7 +46,7 @@ const Login = () => {
         onSubmit={handleLogin}
         className="card-body w-full md:w-1/2 "
       >
-        <h2 className="text-3xl font-bold text-white text-center">
+        <h2 className="text-5xl font-bold text-white text-center">
           Login Now!
         </h2>
         <div className="form-control ">
@@ -93,7 +93,7 @@ const Login = () => {
 
         <div
           onClick={handleGoogleLogin}
-          className="border border-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]"
+          className="border border-white text-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#1a732c]  hover:shadow-xl hover:shadow-[#0ecb34]"
         >
           <box-icon
             name="google"
