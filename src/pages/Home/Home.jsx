@@ -48,11 +48,12 @@ const Home = () => {
        <div className="mt-12 md:flex ">
 
            <div className="left md:w-1/2 text-center">
-            <h4 className="font-bold text-4xl">Our Mission </h4> 
+            <h4 className="font-bold text-4xl text-white">Our Mission </h4> 
             <h2 className="text-orange-500 text-5xl font-bold p-3">Best Islamic Platform For Learning</h2>
             <p className="p-3">At Mahadul Qira'at Al Hind, our mission is to provide a seamless and interactive learning experience for adults and children from all over the world. Our goal is to make Quranic learning accessible worldwide, connecting muslims with the holy book of Allah through online Quran classes with our expert tutors who are passionate about sharing their knowledge of the Quran.</p>
+            <button className="btn bg-orange-500 text-white m-5">Get Enrolled</button>
            </div>
-           <div className="right flex justify-center">
+           <div className="right flex justify-center ">
 
            <img src={platformImg} className="rounded-lg" width={500} alt="" />
 
