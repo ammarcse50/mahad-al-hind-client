@@ -69,7 +69,7 @@ const Home = () => {
               Get Enrolled
             </button>
           </div>
-          <div className="right md:w-1/2 flex justify-center ">
+          <div className="right md:w-1/2 flex justify-center my-4">
             <img src={platformImg} className="rounded-lg" width={500} alt="" />
           </div>
         </div>
@@ -81,7 +81,7 @@ const Home = () => {
 
 
 
-            <div className="left md:w-1/2 ">
+            <div className="left md:w-1/2 flex justify-center my-3">
               <img src={getCloserImg} width={500}  className="rounded-lg h-[500px]" alt="" />
             </div>
 
