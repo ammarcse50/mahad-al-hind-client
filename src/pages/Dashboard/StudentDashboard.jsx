@@ -1,10 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
+import useStudentsData from "../../components/Hooks/useStudentsData";
 
 const StudentDashboard = () => {
+  const  records = useStudentsData();
+
+  const [first_name]= [records[0]?.first_name]
   return (
     <div className="mt-32 w-full ">
       <h2 className="text-center font-bold text-5xl text-[#cb630e]">
-        My Profile
+        My Profile <br />
+ 
+        <span className="text-white">Wellcome 
+          </span> {first_name}
       </h2>
 
       <div className="w-full mt-10 md:flex">
@@ -12,6 +19,7 @@ const StudentDashboard = () => {
           <div className="avatar ml-32 lg:ml-20 py-10">
             <div className="w-24 rounded-full ">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+
             </div>
           </div>
           <div className="text-center p-10">

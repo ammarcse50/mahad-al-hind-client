@@ -1,45 +1,49 @@
+import { BsRecordFill } from "react-icons/bs";
+import useStudentsData from "../../components/Hooks/useStudentsData";
+import axios from "axios";
+import { useContext, useRef } from "react";
+import { AuthContext } from "../../components/Common/AuthProvider";
 
 const Profile = () => {
-         
-         
-             
-    return (
-        <div className="hero min-h-screen bg-base-200">
-             <h2>Wellcome {}</h2>
-            <form className="card-body w-full lg:w-1/2">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">New Password</span>
-          </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
-         
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">ReType Password</span>
-          </label>
-          <input type="password" placeholder="ReType password" className="input input-bordered" required />
-         
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Upload Your Image</span>
-          </label>
-          <input type="file"   />
-         
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn text-xl text-white bg-[#e58106]">Save Change</button>
-        </div>
-      </form>
-</div>
-    );
+  const records = useStudentsData();
+
+  const { user } = useContext(AuthContext);
+
+  const [first_name, last_name,address,number,gender] = [
+    records[0]?.first_name,
+    records[0]?.last_name,
+    records[0]?.address,
+    records[0]?.number,
+    records[0]?.gender,
+  ];
+
+  return (
+    <div className=" bg-base-200 min-h-screen p-10 space-y-4">
+      <div>
+        {" "}
+        <h2 className="text-5xl font-bold">
+          Student Name : {first_name + " " + last_name}
+        </h2>{" "}
+        <br />
+      </div>
+      <div>
+        {" "}
+        <h3 className="text-3xl font-bold">Email: {user?.email}</h3>
+      </div>
+      <div>
+        {" "}
+        <h3 className="text-3xl font-bold">Address : {address} </h3>
+      </div>
+      <div>
+        {" "}
+        <h3 className="text-3xl font-bold">Number: {number} </h3>
+      </div>
+      <div>
+        {" "}
+        <h3 className="text-3xl font-bold">Gender: {gender} </h3>
+      </div>
+    </div>
+  );
 };
 
 export default Profile;
