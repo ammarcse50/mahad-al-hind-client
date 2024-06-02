@@ -7,6 +7,8 @@ import { useMediaQuery } from "react-responsive";
 
 import { AuthContext } from "./AuthProvider";
 
+     
+
 const NavBar = () => {
   const { logOut, user } = useContext(AuthContext);
   const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });

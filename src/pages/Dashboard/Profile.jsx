@@ -1,8 +1,12 @@
 
 const Profile = () => {
+         
+         
+             
     return (
         <div className="hero min-h-screen bg-base-200">
- <form className="card-body w-full lg:w-1/2">
+             <h2>Wellcome {}</h2>
+            <form className="card-body w-full lg:w-1/2">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>

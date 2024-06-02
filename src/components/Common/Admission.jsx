@@ -39,11 +39,11 @@ const Admission = () => {
     console.log(data);
 
     axios
-      .post("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/students", data)
+      .post("http://localhost:5000/students", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          Swal.fire({
+            Swal.fire({
             title: "Successfully Admitted!",
             text: "Thank You",
             icon: "success",
