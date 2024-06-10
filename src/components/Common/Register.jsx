@@ -24,6 +24,9 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
+
+    
+
     const form = e.target;
 
     const username = form.username.value;

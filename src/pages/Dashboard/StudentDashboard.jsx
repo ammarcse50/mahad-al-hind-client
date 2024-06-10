@@ -4,7 +4,7 @@ import useStudentsData from "../../components/Hooks/useStudentsData";
 const StudentDashboard = () => {
   const  records = useStudentsData();
 
-  const [first_name]= [records[0]?.first_name]
+  const first_name= records[0]?.first_name
   return (
     <div className="mt-32 w-full ">
       <h2 className="text-center font-bold text-5xl text-[#cb630e]">

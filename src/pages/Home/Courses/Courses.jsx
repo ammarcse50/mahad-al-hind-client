@@ -16,7 +16,7 @@ const Courses = () => {
   useEffect(() => {
     axios
       .get(
-        "https://mahad-al-hind-server-production.up.railway.app/courses"
+        "http://localhost:5000/courses"
       )
       .then((res) => {
         setCourses(res.data);

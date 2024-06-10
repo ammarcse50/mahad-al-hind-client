@@ -11,8 +11,11 @@ const useStudentsData = () => {
 
     useEffect(()=>{
 
-       axios.get(`http://localhost:5000/students?email=${user?.email}&sort=1`)
-       .then(res=> setRecord(res.data) )
+       axios.get(`http://localhost:5000/students?email=${user?.email}`)
+       .then(res=> {
+        
+         
+        setRecord(res.data)} )
        .catch(err=>console.log(err))
 
 

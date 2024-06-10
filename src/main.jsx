@@ -59,7 +59,7 @@ const router = createBrowserRouter([
           },
           {
             path: "/dashboard/profile",
-            element: <Profile></Profile>
+            element: <Profile></Profile>,
           },
           {
             path: "/dashboard/payment",
