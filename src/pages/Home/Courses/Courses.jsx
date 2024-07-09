@@ -5,6 +5,8 @@ import Aos from "aos";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const [isLoading, setLoading]= useState(true);
+
   useEffect(() => {
     // Initialize AOS when the component mounts
     Aos.init({
@@ -19,9 +21,17 @@ const Courses = () => {
         "http://localhost:5000/courses"
       )
       .then((res) => {
+         setLoading(true)
         setCourses(res.data);
+        setLoading(false)
+
       });
   }, []);
+
+   if(isLoading)
+    {
+      <p>loading---</p>
+    }
 
   return (
     <div className="mb-10 mt-32" id="courses">

@@ -37,7 +37,7 @@ const Profile = () => {
 
   return (
     <div className=" bg-base-200 min-h-screen p-10 space-y-4">
-      <p>dashboard</p>
+
       <div>
         {" "}
         <h2 className="md:text-5xl text-xl font-bold">

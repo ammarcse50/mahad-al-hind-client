@@ -53,37 +53,38 @@ const Admission = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="hero min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
+    
+    <div className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}>
       <form
         data-aos="fade-up"
         onSubmit={handleSubmitCourse}
-        className="card-body "
+        className={`card-body text-white `}
       >
         {" "}
         <div className="text-center ">
-          <h1 className="text-5xl font-bold text-black">
+          <h1 className="text-5xl font-bold text-orange-500 shadow shadow-3xl shadow-black">
             Student Admission Form
           </h1>
-          <p className="py-6 text-black ">
+          <p className="py-6 text-white ">
             Fill out the form carefully to get Admission
           </p>
         </div>
         <div className="divider"></div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">First Name</span>
+            <span className="label-text text-white">First Name</span>
           </label>
           <input
             type="text"
             name="first_name"
             placeholder="First Name"
-            className="input input-bordered border-black bg-white text-black"
+            className="input input-bordered border-white bg-white text-black"
             required
           />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Last Name</span>
+            <span className="label-text text-white">Last Name</span>
           </label>
           <input
             type="text"
@@ -95,7 +96,7 @@ const Admission = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Gender</span>
+            <span className="label-text text-white">Gender</span>
           </label>
 
           <select
@@ -110,7 +111,7 @@ const Admission = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Address</span>
+            <span className="label-text text-white">Address</span>
           </label>
           <input
             type="text"
@@ -122,7 +123,7 @@ const Admission = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Student Email</span>
+            <span className="label-text text-white">Student Email</span>
           </label>
           <input
             type="email"
@@ -134,7 +135,7 @@ const Admission = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">WhatsApp</span>
+            <span className="label-text text-white">WhatsApp</span>
           </label>
           <input
             type="text"
@@ -145,7 +146,7 @@ const Admission = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Courses</span>
+            <span className="label-text text-white">Courses</span>
           </label>
 
           <select

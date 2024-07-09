@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
-import logo from "../../../public/images/logo.png";
+import { useContext} from "react";
+import logo from "../../../public/images/logo.jpg";
 import { Link, NavLink } from "react-router-dom";
 import { RiContactsFill } from "react-icons/ri";
 import dp from "../../../public/images/def.png";
-import { useMediaQuery } from "react-responsive";
 
 import { AuthContext } from "./AuthProvider";
 
@@ -11,7 +10,7 @@ import { AuthContext } from "./AuthProvider";
 
 const NavBar = () => {
   const { logOut, user } = useContext(AuthContext);
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
+
 
   const handleLogOut = () => {
     logOut()
@@ -118,7 +117,7 @@ const NavBar = () => {
           </ul>
         </div>
         <Link to="/" className="backdrop-blur-3xl bg-white-100">
-          <img src={logo} className="w-20 " alt="" />
+          <img src={logo} className="w-20 rounded-full" alt="" />
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
