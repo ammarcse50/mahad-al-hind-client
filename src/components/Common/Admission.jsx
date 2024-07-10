@@ -43,7 +43,7 @@ const Admission = () => {
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-            Swal.fire({
+          Swal.fire({
             title: "Successfully Admitted!",
             text: "Thank You",
             icon: "success",
@@ -53,8 +53,9 @@ const Admission = () => {
       .catch((error) => console.log(error));
   };
   return (
-    
-    <div className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}>
+    <div
+      className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}
+    >
       <form
         data-aos="fade-up"
         onSubmit={handleSubmitCourse}
@@ -62,7 +63,7 @@ const Admission = () => {
       >
         {" "}
         <div className="text-center ">
-          <h1 className="text-5xl font-bold text-orange-500 shadow shadow-3xl shadow-black">
+          <h1 className="text-5xl font-bold text-orange-500 shadow shadow-3xl shadow-white">
             Student Admission Form
           </h1>
           <p className="py-6 text-white ">
@@ -166,7 +167,9 @@ const Admission = () => {
           </select>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">Submit</button>
+          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
+            Submit
+          </button>
         </div>
       </form>
     </div>

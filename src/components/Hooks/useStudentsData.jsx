@@ -1,29 +1,25 @@
-import axios from "axios"
-import { useContext, useEffect, useState } from "react"
-import { AuthContext } from "../Common/AuthProvider"
+
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Common/AuthProvider";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useStudentsData = () => {
-  
+  const axiosSecure = useAxiosSecure();
 
-    const {user}= useContext(AuthContext)
-         
-    const [records,setRecord]= useState([])
+  const { user } = useContext(AuthContext);
 
-    useEffect(()=>{
+  const [records, setRecord] = useState([]);
 
-       axios.get(`http://localhost:5000/students?email=${user?.email}`)
-       .then(res=> {
-        
-         
-        setRecord(res.data)} )
-       .catch(err=>console.log(err))
+  useEffect(() => {
+    axiosSecure
+      .get(`/students?email=${user?.email}`)
+      .then((res) => {
+        setRecord(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
+  return records;
+};
 
-
-
-    },[])
-
-    return records
-}
-
-export default useStudentsData
+export default useStudentsData;

@@ -71,7 +71,7 @@ const Footer = () => {
         </nav>
       </footer>
       <div className="text-[#159e53] text-xl  flex flex-row gap-4 justify-center pb-3">
-        <p className="text-white md:px-0 px-5 py-4 mt-10">
+        <p className="text-black md:px-0 px-5 py-4 mt-10">
           © Copyright 2023 | All rights reserved by MAHAD AL HIND
         </p>
       </div>
