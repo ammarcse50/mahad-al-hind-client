@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Qari Abu Jor Al Gifari",
+    "rating": 5,
+    "testimonial": "The service was exceptional and the staff was very friendly. Highly recommend!",
+    "image": "https://i.ibb.co/Tw38RHV/441034449-4440470561491460-3037081450584734478-n.jpg"
+  },
+  {
+    "name": "Qari Abdullah",
+    "rating": 4,
+    "testimonial": "Great experience overall, but the wait time could be improved.",
+    "image": "https://i.ibb.co/1zG7Qyj/446606556-1054073905647390-91094843799748710-n.jpg"
+  },
+  {
+    "name": "Qari ferdous alom",
+    "rating": 3,
+    "testimonial": "The product was decent but didn't meet my expectations entirely.",
+    "image": "https://i.ibb.co/JksJ3q5/Whats-App-Image-2024-07-11-at-17.jpg"
+  },
+  {
+    "name": "Engineer Maruful Islam",
+    "rating": 5,
+    "testimonial": "Absolutely fantastic! Exceeded all my expectations.",
+    "image": "https://i.ibb.co/JQhxJRY/Whats-App-Image-4044-06-47-at-19-08-41-969d1d03.jpg"
+  },
+  {
+    "name": "Engineer Qari Mohammmad Ammar",
+    "rating": 5,
+    "testimonial": "Very good service, but a bit pricey.",
+    "image": "https://i.ibb.co/F64hm7k/profile-pic-5.png"
+  },
+  {
+    "name": "Qari Altaf Gazi",
+    "rating": 4,
+    "testimonial": "satisfied with the service.",
+    "image": "https://i.ibb.co/gt4tcYk/434574688-3718647918414945-3116706798548813557-n.jpg"
+  },
+  {
+    "name": "Mawlana Qari Mahmudul hussain",
+    "rating": 5,
+    "testimonial": "Outstanding experience! Will definitely come back.",
+    "image": "https://i.ibb.co/MPQtCN6/448144551-387560714498640-6337495696776433401-n.jpg"
+  },
+  {
+    "name": "Aros ali kondokar",
+    "rating": 3,
+    "testimonial": "It was okay, nothing special. Just average.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Qari Anamul Houqe Sadi",
+    "rating": 4,
+    "testimonial": "Good quality, but delivery was delayed.",
+    "image": "https://i.ibb.co/S5Bfx4x/470174344-443945990707356-1480117336560971004-n.jpg"
+  },
+  {
+    "name": "Engineer Ruhullah",
+    "rating": 5,
+    "testimonial": "Very disappointing. Would not recommend.",
+    "image": "https://i.ibb.co/nP5pkDt/428677594-3530217933956693-7669841787776045213-n.jpg"
+  }
+]

@@ -13,7 +13,7 @@ const Footer = () => {
     });
   }, []);
   return (
-    <div className="bg-base-200 w-full mt-32 p-4">
+    <div className="bg-base-200  w-full mt-32 p-4">
       <footer className="footer  max-w-7xl mx-auto font-bold text-base-content">
         <aside data-aos="fade-right" className="">
           <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
@@ -24,19 +24,19 @@ const Footer = () => {
           </p>
         </aside>
         <nav data-aos="fade-up">
-          <h6 className="footer-title text-white">Services</h6>
+          <h6 className="footer-title text-black">Services</h6>
           <a className="link link-hover">Quran Course</a>
           <a className="link link-hover">Maqamat</a>
           <a className="link link-hover">Rewayat</a>
           <a className="link link-hover">Higher Qira'at Course</a>
         </nav>
         <nav data-aos="fade-up">
-          <h6 className="footer-title text-white">Our Academy</h6>
+          <h6 className="footer-title text-black">Our Academy</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
         </nav>
         <nav data-aos="fade-left">
-          <h6 className="footer-title text-white">SOCIAL MEDIA</h6>
+          <h6 className="footer-title text-black">SOCIAL MEDIA</h6>
           <p className="mb-4">You can find us from social links given below</p>
           <div className="flex gap-5">
             <Link to="https://t.me/+919365262648">

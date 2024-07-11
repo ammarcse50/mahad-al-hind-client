@@ -10,6 +10,7 @@ import getCloserImg from "/images/getcloser.png";
 import platformImg from "/images/platform.png";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/Common/SectionTitle/SectionTitle";
+import Testimonials from "./Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -51,36 +52,12 @@ const Home = () => {
         </div>
 
         {/* Review Off Student  */}
-
+    
         <SectionTitle
           heading={"Testimonials"}
           subHeading={"Reviews of students"}
         ></SectionTitle>
-        <div className="mt-20 md:flex ">
-          <div className="left md:w-1/2 text-center space-y-10">
-            <h4 className="font-bold text-4xl text-white">Our Mission </h4>
-            <h2 className="text-orange-500 text-5xl font-bold p-3">
-              Best Islamic Platform For Learning
-            </h2>
-            <p className="p-3">
-              At Mahadul Qira'at Al Hind, our mission is to provide a seamless
-              and interactive learning experience for adults and children from
-              all over the world. Our goal is to make Quranic learning
-              accessible worldwide, connecting muslims with the holy book of
-              Allah through online Quran classes with our expert tutors who are
-              passionate about sharing their knowledge of the Quran.
-            </p>
-            <Link to="/form">
-              {" "}
-              <button className="btn  bg-orange-400 bg-gradient-to-r from-orange-300 via-orange-500  to-orange-600 text-white text-xl">
-                Get Enrolled
-              </button>
-            </Link>
-          </div>
-          <div className="right md:w-1/2 flex justify-center my-4">
-            <img src={platformImg} className="rounded-lg" width={500} alt="" />
-          </div>
-        </div>
+      <Testimonials></Testimonials>
 
         {/* Learn quran best tutor
          */}
