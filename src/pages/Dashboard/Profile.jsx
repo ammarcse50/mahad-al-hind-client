@@ -1,47 +1,33 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../components/Common/AuthProvider";
-import { MdEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useStudentsData from "../../components/Hooks/useStudentsData";
+import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
+import useAuth from "../../components/Hooks/useAuth";
 
 const Profile = () => {
-  const [records, setRecord] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [students, setRecord] = useState([]);
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth()
+ const [students,  refetch] = useStudentsData()
+ console.log(students)
+ const axiosSecure = useAxiosSecure()
+ 
+   
+  // destructuring students of fetch data
 
-  const url = `http://localhost:5000/students?email=${user?.email}`;
-
-  useEffect(() => {
-    axios
-      .get(url)
-      // .then(res => res.json())
-      .then((data) => {
-        setRecord(data.data);
-
-        setIsLoading(false);
-      })
-      .catch((error) => console.log(error));
-  }, [url]);
-  if (isLoading) {
-    <progress className="progress w-56"></progress>;
-  }
-
-  // destructuring records of fetch data
-
-  const id = records[0]?._id;
-  const first_name = records[0]?.first_name;
-  const last_name = records[0]?.last_name;
-  const number = records[0]?.number;
-  const gender = records[0]?.gender;
-  const address = records[0]?.address;
+  const id = students[0]?._id;
+  const first_name = students[0]?.first_name;
+  const last_name = students[0]?.last_name;
+  const number = students[0]?.number;
+  const gender = students[0]?.gender;
+  const address = students[0]?.address;
   console.log(first_name);
-
+  
+  refetch()
   // submitting  updates
 
   const handleUpdate = (e) => {
     e.preventDefault();
+
 
     const form = e.target;
     const email = form.email.value;
@@ -52,8 +38,11 @@ const Profile = () => {
     const address = form.address.value;
 
     const data = { email, first_name, last_name, number, gender, address };
-    console.log(data);
-    axios.put(`http://localhost:5000/students/${id}`, data).then(() => {
+    console.log(data); 
+
+    axiosSecure.put(`/students/${id}`, data).then(() => {
+      
+
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -62,8 +51,8 @@ const Profile = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, update it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
+      }).then((result) => {   
+        if (result.modifiedCount > 0) {
           Swal.fire({
             title: "Updated!",
             text: "Your file has been updated.",
@@ -156,11 +145,11 @@ const Profile = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Update</button>
+          <button className="btn bg-orange-400">Update</button>
         </div>
       </form>
 
-   j
+   
     </div>
   );
 };

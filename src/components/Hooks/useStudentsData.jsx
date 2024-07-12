@@ -1,25 +1,23 @@
-
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Common/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
 
 const useStudentsData = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
-  const [records, setRecord] = useState([]);
+  const { refetch, data: students = [] } = useQuery({
+    queryKey: ["students", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/students?email=${user?.email}`);
+      return res.data;
+    },
+  });
 
-  useEffect(() => {
-    axiosSecure
-      .get(`/students?email=${user?.email}`)
-      .then((res) => {
-        setRecord(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  return records;
+  return [students, refetch];
 };
 
 export default useStudentsData;

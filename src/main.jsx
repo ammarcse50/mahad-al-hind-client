@@ -17,7 +17,8 @@ import StudentDashboard from "./pages/Dashboard/StudentDashboard";
 import Profile from "./pages/Dashboard/Profile";
 
 import PaymentHistory from "./pages/Dashboard/PaymentHistory";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 import CourseEnroll from "./pages/Dashboard/CourseEnroll";
 const router = createBrowserRouter([
   {
@@ -51,38 +52,36 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <StudentDashboard></StudentDashboard>,
-        children:[
-
+        children: [
           {
             path: "/dashboard",
-            element: <Profile></Profile>
+            element: <Profile></Profile>,
           },
           {
             path: "/dashboard/profile",
             element: <Profile></Profile>,
-           
           },
-          
+
           {
             path: "/dashboard/payment",
-            element: <PaymentHistory></PaymentHistory>
+            element: <PaymentHistory></PaymentHistory>,
           },
           {
             path: "/dashboard/courseenroll",
-            element: <CourseEnroll></CourseEnroll>
-          }
-        ]
-      
+            element: <CourseEnroll></CourseEnroll>,
+          },
+        ],
       },
-     
-    
     ],
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      {" "}
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>{" "}
     </AuthProvider>
   </React.StrictMode>
 );

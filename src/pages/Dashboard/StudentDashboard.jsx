@@ -20,7 +20,7 @@ const StudentDashboard = () => {
         <div className="border lg:w-1/4 flex flex-col ">
           <div className="avatar ml-32 lg:ml-20 py-10">
             <div className="w-24 rounded-full ">
-              <img src={user?.photoURL}  alt={"upload"} />
+              <img src={user?.photoURL}  alt={'Please Upload'} />
 
             </div>
           </div>
