@@ -80,7 +80,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar h-24 bg-base-100 z-10 fixed top-0 shadow-lg shadow-orange-500  ">
+    <div className="navbar top-0 fixed bg-base-100 z-30  shadow-xl text-center  ">
      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

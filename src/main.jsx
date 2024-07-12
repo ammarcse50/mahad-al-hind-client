@@ -60,7 +60,9 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/profile",
             element: <Profile></Profile>,
+           
           },
+          
           {
             path: "/dashboard/payment",
             element: <PaymentHistory></PaymentHistory>
