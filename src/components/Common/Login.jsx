@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -15,6 +15,16 @@ const Login = () => {
     });
   }, []);
   
+   // collecting path name for redirecting 
+     
+     const navigate = useNavigate();
+     const location = useLocation();
+     const from = location.state?.from?.pathname || "/";
+
+     console.log('location i came from',from)
+
+
+    
   const { loginAccount, googleLogin } = useContext(AuthContext);
 
   const handleGoogleLogin = () => {
@@ -37,6 +47,8 @@ const Login = () => {
     loginAccount(email, password).then((res) => {
       console.log(res.user);
       alert(res.user.email, "is logged in");
+
+       navigate(from,{replace:true})
     });
   };
   return (
@@ -85,9 +97,9 @@ const Login = () => {
           </button>
         </div>
 
-        <p className="text-black text-center font-bold mt-6">
+        <p className="text-white text-center font-bold mt-6">
           New to here ?{" "}
-          <Link to="/register" className="text-blue-100 font-semibold">
+          <Link to="/register" className="text-orange-500 font-semibold">
             Register
           </Link>
         </p>

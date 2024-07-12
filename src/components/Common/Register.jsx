@@ -1,15 +1,13 @@
-import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "./AuthProvider";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import app from "../../firebase/firebase.config";
-import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useAuth from "../Hooks/useAuth";
 
 const Register = () => {
   const auth = getAuth(app);
@@ -24,7 +22,7 @@ const Register = () => {
 
    const axiosSecure = useAxiosSecure()
 
-  const { createAccount } = useContext(AuthContext);
+  const { createAccount } = useAuth()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -137,7 +135,7 @@ const Register = () => {
 
         <p className="text-black text-center mt-6 font-bold">
           Already Register?{" "}
-          <Link to="/login" className="text-black font-semibold">
+          <Link to="/login" className="text-orange-500 font-semibold">
             Login
           </Link>
         </p>

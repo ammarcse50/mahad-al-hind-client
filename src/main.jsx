@@ -21,6 +21,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 import CourseEnroll from "./pages/Dashboard/CourseEnroll";
 import Certificate from "./pages/Dashboard/Certificate";
+import PrivateRoutes from "./components/Common/PrivateRoutes/PrivateRoutes";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/form",
-        element: <Admission></Admission>,
+        element: <Admission></Admission> ,
       },
       {
         path: "/dashboard",

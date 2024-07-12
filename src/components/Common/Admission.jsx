@@ -2,6 +2,8 @@ import Aos from "aos";
 import axios from "axios";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Admission = () => {
   useEffect(() => {
@@ -11,55 +13,89 @@ const Admission = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-  const handleSubmitCourse = (e) => {
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // auth
+
+  const { user } = useAuth();
+
+  const handleSubmitCourses = (e) => {
     e.preventDefault();
 
-    const form = e.target;
+    if (user && user?.email) {
+        // todo
+        
+      const form = e.target;
 
-    const first_name = form.first_name.value;
-    const last_name = form.last_name.value;
+      const first_name = form.first_name.value;
+      const last_name = form.last_name.value;
 
-    const email = form.email.value;
-    const address = form.address.value;
+      const email = form.email.value;
+      const address = form.address.value;
 
-    const number = form.number.value;
-    const courses = form.courses.value;
-    const gender = form.gender.value;
+      const number = form.number.value;
+      const courses = form.courses.value;
+      const gender = form.gender.value;
 
-    const data = {
-      first_name,
-      last_name,
-      email,
-      address,
-      gender,
-      number,
-      courses,
-    };
+      const data = {
+        first_name,
+        last_name,
+        email,
+        address,
+        gender,
+        number,
+        courses,
+      };
 
-    console.log(data);
+     
+      axios
+        .post("http://localhost:5000/students", data)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.insertedId) {
+            Swal.fire({
+              title: "Successfully Admitted!",
+              text: "Thank You",
+              icon: "success",
+            });
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+    
+    else {
 
-    axios
-      .post("http://localhost:5000/students", data)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            title: "Successfully Admitted!",
-            text: "Thank You",
-            icon: "success",
-          });
+      Swal.fire({
+        title: "Your are not logged in",
+        text: "Please login to take admission!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes,Login!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          //send the user to the login
+         navigate('/login',{state:{from:location}})
         }
-      })
-      .catch((error) => console.log(error));
-  };
+      });
+   
+
+
+      
+  }
+}
+
   return (
     <div
       className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}
     >
-        <div className="hero-overlay bg-opacity-70"></div>
+      <div className="hero-overlay bg-opacity-70"></div>
       <form
         data-aos="fade-up"
-        onSubmit={handleSubmitCourse}
+        onSubmit={handleSubmitCourses}
         className={`card-body text-white `}
       >
         {" "}
@@ -177,4 +213,5 @@ const Admission = () => {
   );
 };
 
-export default Admission;
+
+export default Admission
