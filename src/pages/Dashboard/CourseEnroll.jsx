@@ -1,23 +1,18 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
 import EnrolledCard from "./EnrolledCard";
-import { AuthContext } from "../../components/Common/AuthProvider";
 import useStudentsData from "../../components/Hooks/useStudentsData";
 
 const CourseEnroll = () => {
+  const [students,refetch,isLoading] = useStudentsData();
 
-     
-  
-     const records =  useStudentsData();
+  return (
+    <div className="text-center grid grid-cols-3 text-5xl p-10">
+      {students.map((record) => (
+        <EnrolledCard key={record._id} record={record}></EnrolledCard>
+      ))}
+        
 
-    return (
-        <div className='text-center text-5xl p-10'>
-          
-            {
-                records.map(record => <EnrolledCard key={record._id} record={record}></EnrolledCard>)
-            }
-        </div>
-    );
+    </div>
+  );
 };
 
 export default CourseEnroll;

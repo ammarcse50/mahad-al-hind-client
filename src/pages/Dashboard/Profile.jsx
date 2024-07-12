@@ -6,12 +6,11 @@ import useAuth from "../../components/Hooks/useAuth";
 const Profile = () => {
   // const [students, setRecord] = useState([]);
 
-  const { user } = useAuth()
- const [students,  refetch,isLoading] = useStudentsData()
- console.log(students)
- const axiosSecure = useAxiosSecure()
+  const { user } = useAuth();
+  const [students, refetch, isLoading] = useStudentsData();
+  console.log(students);
+  const axiosSecure = useAxiosSecure();
 
-   
   // destructuring students of fetch data
 
   const id = students[0]?._id;
@@ -21,13 +20,12 @@ const Profile = () => {
   const gender = students[0]?.gender;
   const address = students[0]?.address;
   console.log(first_name);
-  
-  refetch()
+
+  refetch();
   // submitting  updates
 
   const handleUpdate = (e) => {
     e.preventDefault();
-
 
     const form = e.target;
     const email = form.email.value;
@@ -38,11 +36,12 @@ const Profile = () => {
     const address = form.address.value;
 
     const data = { email, first_name, last_name, number, gender, address };
-    console.log(data); 
+    console.log(data);
 
-    axiosSecure.put(`/students/${id}`, data).then(() => {
-      
+ 
 
+    axiosSecure.put(`/students/${id}`, data).then((result) => {   
+        
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -50,22 +49,30 @@ const Profile = () => {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, update it!"
-      }).then((result) => {   
-        if (result.modifiedCount > 0) {
-          Swal.fire({
-            title: "Updated!",
-            text: "Your file has been updated.",
-            icon: "success"
-          });
-        }
-      });
+        confirmButtonText: "Yes, update it!",
+
+
+    }).then(res=>{
+      
+
+     if (res.isConfirmed && result.data.modifiedCount > 0) {
+        console.log(result.data)
+        Swal.fire({
+          title: "Updated!",
+          text: "Your file has been updated.",
+          icon: "success",
+        });
+      }
+
+    })
+     
     });
   };
-  if(isLoading)
-    {
-      return    <span className="loading loading-spinner loading-xl">Loading.....</span>
-    }
+  if (isLoading) {
+    return (
+      <span className="loading loading-spinner loading-xl">Loading.....</span>
+    );
+  }
   return (
     <div className="min-h-screen p-10 space-y-4">
       <form onSubmit={handleUpdate} className="card-body">
@@ -140,7 +147,7 @@ const Profile = () => {
           </label>
           <input
             type="text"
-             name="address"
+            name="address"
             defaultValue={address}
             placeholder="Address"
             className="input input-bordered"
@@ -151,8 +158,6 @@ const Profile = () => {
           <button className="btn bg-orange-400">Update</button>
         </div>
       </form>
-
-   
     </div>
   );
 };
