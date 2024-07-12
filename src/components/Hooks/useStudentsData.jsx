@@ -9,7 +9,7 @@ const useStudentsData = () => {
 
   const { user } = useAuth();
 
-  const { refetch, data: students = [] } = useQuery({
+  const { refetch, data: students = [] ,isLoading} = useQuery({
     queryKey: ["students", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/students?email=${user?.email}`);
@@ -17,7 +17,9 @@ const useStudentsData = () => {
     },
   });
 
-  return [students, refetch];
+
+
+  return [students, refetch ,isLoading];
 };
 
 export default useStudentsData;

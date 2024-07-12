@@ -7,10 +7,10 @@ const Profile = () => {
   // const [students, setRecord] = useState([]);
 
   const { user } = useAuth()
- const [students,  refetch] = useStudentsData()
+ const [students,  refetch,isLoading] = useStudentsData()
  console.log(students)
  const axiosSecure = useAxiosSecure()
- 
+
    
   // destructuring students of fetch data
 
@@ -62,7 +62,10 @@ const Profile = () => {
       });
     });
   };
-
+  if(isLoading)
+    {
+      return    <span className="loading loading-spinner loading-xl">Loading.....</span>
+    }
   return (
     <div className="min-h-screen p-10 space-y-4">
       <form onSubmit={handleUpdate} className="card-body">
