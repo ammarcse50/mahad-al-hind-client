@@ -40,7 +40,8 @@ const Login = () => {
     });
   };
   return (
-    <div className="hero min-h-screen mt-10 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero bg-[url('/images/login_background.jpg')] min-h-screen mt-10 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+     <div className="hero-overlay bg-opacity-70"></div>
       <form
         data-aos="fade-up"
         onSubmit={handleLogin}
@@ -51,7 +52,7 @@ const Login = () => {
         </h2>
         <div className="form-control ">
           <label className="label">
-            <span className="label-text text-black">Email</span>
+            <span className="label-text text-xl text-white">Email</span>
           </label>
           <input
             type="email"
@@ -63,7 +64,7 @@ const Login = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-black">Password</span>
+            <span className="label-text text-xl text-white">Password</span>
           </label>
           <input
             type="password"
@@ -73,7 +74,7 @@ const Login = () => {
             required
           />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover text-black">
+            <a href="#" className="label-text-alt text-xl link link-hover text-white">
               Forgot password?
             </a>
           </label>

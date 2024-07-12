@@ -1,5 +1,3 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Common/AuthProvider";
 import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";

@@ -20,6 +20,7 @@ import PaymentHistory from "./pages/Dashboard/PaymentHistory";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 import CourseEnroll from "./pages/Dashboard/CourseEnroll";
+import Certificate from "./pages/Dashboard/Certificate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/courseenroll",
             element: <CourseEnroll></CourseEnroll>,
+          },
+          {
+            path: "/dashboard/certificate",
+            element: <Certificate></Certificate>,
           },
         ],
       },

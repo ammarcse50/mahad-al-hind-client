@@ -21,7 +21,7 @@ const Profile = () => {
   const address = students[0]?.address;
   console.log(first_name);
 
-  refetch();
+ 
   // submitting  updates
 
   const handleUpdate = (e) => {
@@ -41,7 +41,7 @@ const Profile = () => {
  
 
     axiosSecure.put(`/students/${id}`, data).then((result) => {   
-        
+      refetch();
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",

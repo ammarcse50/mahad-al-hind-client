@@ -56,6 +56,7 @@ const Admission = () => {
     <div
       className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}
     >
+        <div className="hero-overlay bg-opacity-70"></div>
       <form
         data-aos="fade-up"
         onSubmit={handleSubmitCourse}

@@ -80,7 +80,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="navbar top-0 fixed bg-base-100 z-30  shadow-xl text-center  ">
+    <div className="navbar  top-0 fixed bg-base-100 z-30 lg: shadow-xl text-center  ">
      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -107,7 +107,7 @@ const NavBar = () => {
             <div className="w-6 rounded-full">
               {user ? (
                 <>
-                  <img src={dp} className="ml-12" alt="img" />{" "}
+                  <img src={user?.photoURL} className="ml-12" alt="img" />{" "}
                   <span className="">{user.email}</span>
                 </>
               ) : (
@@ -120,8 +120,12 @@ const NavBar = () => {
           <img src={logo} className="w-20 rounded-full" alt="" />
         </Link>
       </div>
-      <div className="navbar-end hidden lg:flex">
+      <div className="navbar hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7">{navlinks}</ul>
+      </div>
+      
+      <div className=" hidden lg:flex">
+         <img src={user?.photoURL} alt="" />
       </div>
       
 

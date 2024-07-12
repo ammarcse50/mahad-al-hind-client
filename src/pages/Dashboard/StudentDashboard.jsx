@@ -1,13 +1,18 @@
 import {  NavLink, Outlet } from "react-router-dom";
 import useStudentsData from "../../components/Hooks/useStudentsData";
-import { useContext } from "react";
-import { AuthContext } from "../../components/Common/AuthProvider";
+import useAuth from "../../components/Hooks/useAuth";
 
 const StudentDashboard = () => {
-  const{user}=useContext(AuthContext)
-  const  records = useStudentsData();
+  const{user}=useAuth()
 
-  const first_name= records[0]?.first_name
+  const [students] = useStudentsData();
+ console.log(students)
+  const first_name= students[0]?.first_name
+  const last_name= students[0]?.last_name
+
+
+  
+   
   return (
     <div className="mt-32 w-full ">
       <h2 className="text-center font-bold text-4xl text-[#cb630e]">
@@ -19,12 +24,14 @@ const StudentDashboard = () => {
       <div className="w-full mt-10 md:flex">
         <div className="border lg:w-1/4 flex flex-col ">
           <div className="avatar ml-32 lg:ml-20 py-10">
-            <div className="w-24 rounded-full ">
+            <div className="w-32 rounded-full ">
               <img src={user?.photoURL}  alt={'Please Upload'} />
 
             </div>
+          
           </div>
-          <div className="text-center p-10">
+          <h2 className="text-center">{first_name+" "+ last_name}</h2>
+          <div className="text-center px-10">
          
             <NavLink to="/dashboard/profile"   className={({ isActive }) => {
             return isActive ? "bg-orange-500 hover:text-xl " : "text-black";
@@ -46,6 +53,14 @@ const StudentDashboard = () => {
            
               <button className=" hover:bg-[#cb630e] font-bold hover:rounded-md p-5 text-4xl">
                 Payment
+              </button>
+            </NavLink>
+            <NavLink   className={({ isActive }) => {
+            return isActive ? "bg-orange-500 hover:text-xl " : "text-black";
+          }} to="/dashboard/certificate">
+           
+              <button className=" hover:bg-[#cb630e] font-bold hover:rounded-md p-5 text-4xl">
+                Certificate
               </button>
             </NavLink>
           </div>

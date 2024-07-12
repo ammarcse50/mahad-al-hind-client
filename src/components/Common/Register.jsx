@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Register = () => {
   const auth = getAuth(app);
@@ -18,7 +20,10 @@ const Register = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-  const notify = () => toast("Created Account Successful!");
+
+
+   const axiosSecure = useAxiosSecure()
+
   const { createAccount } = useContext(AuthContext);
 
   const handleRegister = (e) => {
@@ -30,10 +35,11 @@ const Register = () => {
     const form = e.target;
 
     const username = form.username.value;
+    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    const data = { username, email, password };
+    const data = { username, email, password ,photo};
 
     createAccount(email, password)
       .then((res) => {
@@ -45,8 +51,8 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
 
-    axios
-      .post("https://mahad-al-hind-server-m5a45nxej-ammars-projects-dc5c7534.vercel.app/users", data)
+    axiosSecure
+      .post("users", data)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
@@ -61,7 +67,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen mt-28 md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero  min-h-screen mt-18 md:max-w-7xl mx-auto   rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleRegister}
@@ -78,6 +84,18 @@ const Register = () => {
             type="text"
             name="username"
             placeholder="Username"
+            className="input input-bordered text-black  border-black bg-slate-100"
+            required
+          />
+        </div>
+        <div className="form-control ">
+          <label className="label">
+            <span className="label-text text-black">Photo Url</span>
+          </label>
+          <input
+            type="text"
+            name="photo"
+            placeholder="PhotoUrl link"
             className="input input-bordered text-black  border-black bg-slate-100"
             required
           />
@@ -112,14 +130,14 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button onClick={notify} className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
+          <button  className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
             Register
           </button>
         </div>
 
         <p className="text-black text-center mt-6 font-bold">
           Already Register?{" "}
-          <Link to="/login" className="text-blue-100 font-semibold">
+          <Link to="/login" className="text-black font-semibold">
             Login
           </Link>
         </p>
