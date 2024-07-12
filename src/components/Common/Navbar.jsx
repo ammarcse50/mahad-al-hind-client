@@ -125,7 +125,7 @@ const NavBar = () => {
       </div>
       
       <div className=" hidden lg:flex">
-         <img src={user?.photoURL} alt="" />
+      {  user ?   <img src={user?.photoURL} alt="" /> : <img  alt="login"/>}
       </div>
       
 
