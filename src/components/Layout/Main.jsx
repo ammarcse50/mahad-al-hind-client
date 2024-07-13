@@ -7,7 +7,7 @@ const Main = () => {
     <div className="font-saira">
       <NavBar></NavBar>
 
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
         <Outlet></Outlet>
       </div>
 

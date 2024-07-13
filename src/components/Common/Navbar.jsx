@@ -1,16 +1,16 @@
-import { useContext} from "react";
 import logo from "../../../public/images/logo.jpg";
 import { Link, NavLink } from "react-router-dom";
 import { RiContactsFill } from "react-icons/ri";
-import dp from "../../../public/images/def.png";
 
-import { AuthContext } from "./AuthProvider";
-
-     
+import useAuth from "../Hooks/useAuth";
+import useUsers from "../Hooks/useUsers";
+import { IoFastFood } from "react-icons/io5";
 
 const NavBar = () => {
-  const { logOut, user } = useContext(AuthContext);
+  const { logOut, user } = useAuth();
 
+  const [users, refetch, isLoading] = useUsers();
+  console.log(users);
 
   const handleLogOut = () => {
     logOut()
@@ -58,14 +58,13 @@ const NavBar = () => {
             Sign out
           </a>
           <NavLink
-          to="/dashboard"
-          className={({ isActive }) => {
-            return isActive ? "text-orange-500 hover:text-xl " : "text-black";
-          }}
-        ><a  className="text-black text-xl">
-           My Dashboard
-          </a></NavLink>
-          
+            to="/dashboard"
+            className={({ isActive }) => {
+              return isActive ? "text-orange-500 hover:text-xl " : "text-black";
+            }}
+          >
+            <a className="text-black text-xl">My Dashboard</a>
+          </NavLink>
         </>
       ) : (
         <NavLink
@@ -79,9 +78,13 @@ const NavBar = () => {
       )}
     </>
   );
+
+  if (isLoading) {
+    return <p>loading------</p>;
+  }
   return (
     <div className="navbar  top-0 fixed bg-base-100 z-30 lg: shadow-xl text-center  ">
-     <div className="navbar-start">
+      <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -123,12 +126,18 @@ const NavBar = () => {
       <div className="navbar hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7">{navlinks}</ul>
       </div>
-      
-      <div className=" hidden lg:flex">
-      {  user ?   <img src={user?.photoURL} alt="" /> : <img  alt="login"/>}
-      </div>
-      
 
+      <div className=" hidden lg:flex">
+        {user ? (
+          <img
+            className="w-20 rounded-full"
+            src={user?.photoURL || users[0].photo}
+            alt="upload"
+          />
+        ) : (
+          "/upload"
+        )}
+      </div>
     </div>
   );
 };

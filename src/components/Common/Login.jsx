@@ -5,6 +5,7 @@ import { AuthContext } from "./AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Login = () => {
   useEffect(() => {
@@ -14,9 +15,9 @@ const Login = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-  
+    const axiosPublic = useAxiosPublic();
    // collecting path name for redirecting 
-     
+      
      const navigate = useNavigate();
      const location = useLocation();
      const from = location.state?.from?.pathname || "/";
@@ -31,6 +32,16 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        const userInfo={
+          email: result.user?.email,
+          name: result.user?.displayName,
+          photo: result.user?.photoURL
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          console.log(res.data)
+          navigate('/')
+        })
       })
       .catch((error) => {
         console.log(error.message);

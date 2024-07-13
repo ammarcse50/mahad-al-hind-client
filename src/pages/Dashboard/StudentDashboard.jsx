@@ -1,9 +1,12 @@
 import {  NavLink, Outlet } from "react-router-dom";
 import useStudentsData from "../../components/Hooks/useStudentsData";
 import useAuth from "../../components/Hooks/useAuth";
+import useUsers from "../../components/Hooks/useUsers";
 
 const StudentDashboard = () => {
   const{user}=useAuth()
+
+  const [users] = useUsers();
 
   const [students] = useStudentsData();
  console.log(students)
@@ -11,8 +14,6 @@ const StudentDashboard = () => {
   const last_name= students[0]?.last_name
 
 
-  
-   
   return (
     <div className="mt-32 w-full ">
       <h2 className="text-center font-bold text-4xl text-[#cb630e]">
@@ -25,7 +26,7 @@ const StudentDashboard = () => {
         <div className="border lg:w-1/4 flex flex-col ">
           <div className="avatar ml-32 lg:ml-20 py-10">
             <div className="w-32 rounded-full ">
-              <img src={user?.photoURL}  alt={'Please Upload'} />
+              <img src={user?.photoURL || users[0]?.photo}  alt={'Please Upload'} />
 
             </div>
           
