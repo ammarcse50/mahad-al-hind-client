@@ -4,6 +4,7 @@ import AOS from "aos";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
+import authImg from '/images/authentication1.png'
 
 const Login = () => {
   useEffect(() => {
@@ -68,19 +69,20 @@ const Login = () => {
     });
   };
   return (
-    <div className="hero bg-[url('/images/login_background.jpg')] min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-      <div className="hero-overlay bg-opacity-70"></div>
+    <div className="flex w-full">
+    <div className="hero  min-h-screen md:w-1/2 mx-auto  rounded-xl">
+   
       <form
         data-aos="fade-up"
         onSubmit={handleLogin}
-        className="card-body w-full md:w-1/2 "
+        className="card-body w-full   "
       >
-        <h2 className="text-5xl font-bold text-white text-center">
+        <h2 className="text-5xl font-bold text-black text-center">
           Login Now!
         </h2>
         <div className="form-control ">
           <label className="label">
-            <span className="label-text text-xl text-white">Email</span>
+            <span className="label-text text-xl text-black">Email</span>
           </label>
           <input
             type="email"
@@ -92,7 +94,7 @@ const Login = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text text-xl text-white">Password</span>
+            <span className="label-text text-xl text-black">Password</span>
           </label>
           <input
             type="password"
@@ -104,7 +106,7 @@ const Login = () => {
           <label className="label">
             <a
               href="#"
-              className="label-text-alt text-xl link link-hover text-white"
+              className="label-text-alt text-xl link link-hover text-black"
             >
               Forgot password?
             </a>
@@ -117,7 +119,7 @@ const Login = () => {
           </button>
         </div>
 
-        <p className="text-white text-center font-bold mt-6">
+        <p className="text-black text-center font-bold mt-6">
           New to here ?{" "}
           <Link to="/register" className="text-orange-500 font-semibold">
             Register
@@ -126,7 +128,7 @@ const Login = () => {
 
         <div
           onClick={handleGoogleLogin}
-          className="border border-white text-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#1a732c]  hover:shadow-xl hover:shadow-[#0ecb34]"
+          className="border border-white text-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#cb7728]  hover:shadow-xl hover:shadow-[#0ecb34]"
         >
           <box-icon
             name="google"
@@ -137,6 +139,8 @@ const Login = () => {
         </div>
       </form>
     
+    </div>
+    <div className="md:w-1/2 pt-32 hidden lg:block"><img src={authImg} alt="" /></div>
     </div>
   );
 };

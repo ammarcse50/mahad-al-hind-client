@@ -22,12 +22,30 @@ const Register = () => {
   }, []);
 
   const axiosPublic = useAxiosPublic();
-
-  const { createAccount } = useAuth();
+  const { createAccount ,googleLogin } = useAuth();
   const handleIcon = () => {
     document.getElementById("upload").click();
   };
 
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        console.log(result.user);
+        const userInfo = {
+          email: result.user?.email,
+          name: result.user?.displayName,
+          // photo: result.user?.photoURL,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -153,6 +171,17 @@ const Register = () => {
           Login
         </Link>
       </p>
+      <div
+          onClick={handleGoogleLogin}
+          className="border border-white text-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#cb7728]  hover:shadow-xl hover:shadow-[#0ecb34]"
+        >
+          <box-icon
+            name="google"
+            type="logo"
+            color="rgba(9,242,46,0.99)"
+          ></box-icon>
+          <span>Login With Google</span>
+        </div>
     </form>
   </div>
   <div className="md:w-1/2 pt-32 hidden lg:block"><img src={authImg} alt="" /></div>
