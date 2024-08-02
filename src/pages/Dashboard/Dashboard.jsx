@@ -11,7 +11,7 @@ const navLinkStyle = ({ isActive }) => ({
 
 const Dashboard = () => {
 
-    const isAdmin = true;
+    const isAdmin = false;
   const { user } = useAuth();
 
   const [students] = useStudentsData();

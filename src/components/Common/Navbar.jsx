@@ -72,8 +72,8 @@ const NavBar = () => {
   );
 
   return (
-    <Headroom className="z-50 ">
-      <div className="navbar  top-0 bg-black font-bold bg-opacity-30 lg:shadow-xl text-center  ">
+    <Headroom className="z-50 bg-black bg-opacity-30 lg:absolute w-full">
+      <div className="navbar  bg-black font-bold bg-opacity-30 lg:shadow-xl text-center  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -133,6 +133,7 @@ const NavBar = () => {
           </Link>
         </div>
       </div>
+   
     </Headroom>
   );
 };

@@ -8,7 +8,7 @@ const useUsers = () => {
   const {
     data: users = [],
     refetch,
-    isLoading,
+    isPending: isLoading,
   } = useQuery({
     queryKey: ["users", user?.email],
     enabled: !loading,
@@ -18,6 +18,13 @@ const useUsers = () => {
 
       return res.data;
     },
+    retry: (failCount, error) => {
+      if (error.response?.status === 404) {
+        return false;
+      }
+      return true;
+    },
+    refetchInterval: 1000,
   });
 
   return [users, refetch, isLoading];

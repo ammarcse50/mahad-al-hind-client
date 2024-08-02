@@ -15,9 +15,10 @@ import Category from "./Category/Category";
 const Home = () => {
   return (
     <div className="">
-      <BreakingNews></BreakingNews>
+    
 
-      <Banner></Banner>
+      <Banner></Banner> 
+       <BreakingNews></BreakingNews>
 
       {/* Why You CHoose Us?  */}
       

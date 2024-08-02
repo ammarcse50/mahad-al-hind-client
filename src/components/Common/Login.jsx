@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Login = () => {
-
   useEffect(() => {
     // Initialize AOS when the component mounts
     AOS.init({
@@ -45,31 +43,32 @@ const Login = () => {
       });
   };
 
-    // image upload to  imgbb server
- 
-     
-  const handleLogin = async(e) => {
-    e.preventDefault();
+  // image upload to  imgbb server
 
- 
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
     const form = e.target;
 
     const email = form.email.value;
     const password = form.password.value;
 
-
-
     loginAccount(email, password).then((res) => {
       console.log(res.user);
-      alert(res.user.email, "is logged in");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "You logged successfull",
+        showConfirmButton: false,
+        timer: 1500,
+      });
 
       navigate("/", { replace: true });
       form.reset();
     });
   };
   return (
-    <div className="hero bg-[url('/images/login_background.jpg')] min-h-screen mt-10 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero bg-[url('/images/login_background.jpg')] min-h-screen  md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
       <div className="hero-overlay bg-opacity-70"></div>
       <form
         data-aos="fade-up"
@@ -111,7 +110,6 @@ const Login = () => {
             </a>
           </label>
         </div>
-       
 
         <div className="form-control mt-6">
           <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] text-white text-xl">
@@ -138,7 +136,7 @@ const Login = () => {
           <span>Login With Google</span>
         </div>
       </form>
-      <ToastContainer />
+    
     </div>
   );
 };

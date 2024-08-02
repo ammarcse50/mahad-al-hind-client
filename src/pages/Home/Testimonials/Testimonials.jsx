@@ -15,13 +15,20 @@ import useAxiosPublic from "../../../components/Hooks/useAxiosPublic";
 
 const Testimonials = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: datas = [] } = useQuery({
+  const { data: datas = []} = useQuery({
     queryKey: ["datas"],
 
     queryFn: async () => {
       const res = await axiosPublic.get("/reviews");
       return res.data;
     },
+    retry: (failure, error) => {
+      if (error) {
+        return false;
+      }
+      return true;
+    },
+    refetchInterval: 1000,
   });
 
   return (

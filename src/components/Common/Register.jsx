@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import AOS from "aos";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import app from "../../firebase/firebase.config";
@@ -29,8 +28,7 @@ const Register = () => {
     document.getElementById("upload").click();
   };
 
-
-  const handleRegister = async(e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -39,25 +37,32 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const imageFile = { image: e.target.upload.files[0] };
-    console.log(imageFile)
+    console.log(imageFile);
 
-      //imgbb api call
+    //imgbb api call
     const res = await axios.post(image_hosting_url, imageFile, {
       headers: {
         "content-Type": "multipart/form-data",
       },
     });
-    
-   console.log(res.data.data.display_url)
 
-     const photo =res.data.data.display_url;
+    console.log(res.data.data.display_url);
+
+    const photo = res.data.data.display_url;
     const userInfo = { username, email, password, photo };
-    console.log(userInfo)
+    console.log(userInfo);
     createAccount(email, password)
       .then((res) => {
         const user = res.user;
         console.log(user);
         sendEmailVerification(auth).then(() => {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Account has been check gmail",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           console.log("verification email send!");
         });
       })
@@ -79,14 +84,14 @@ const Register = () => {
   };
 
   return (
-    <div className="hero  min-h-screen mt-18 md:max-w-7xl mx-auto   rounded-xl">
+    <div className="hero  min-h-screen  md:max-w-7xl mx-auto   rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleRegister}
         className="card-body md:w-1/2 "
       >
-        <h2 className="text-3xl font-bold text-white text-center">
-          Register Now!
+        <h2 className="text-3xl lg:pt-20 font-bold text-black text-center">
+         Create account Now!
         </h2>
         <div className="form-control ">
           <label className="label">
@@ -126,7 +131,7 @@ const Register = () => {
           />
         </div>
         <div className="form-control mt-6 flex">
-          <input type="file" id="upload"  name="upload" />
+          <input type="file" id="upload" name="upload" />
           <img
             onClick={handleIcon}
             src={uploadImg}
@@ -148,7 +153,6 @@ const Register = () => {
           </Link>
         </p>
       </form>
-      <ToastContainer />
     </div>
   );
 };

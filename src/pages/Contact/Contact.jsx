@@ -38,14 +38,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="hero min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
+    <div className="hero min-h-screen  lg:pt-0  md:max-w-7xl mx-auto  bg-orange-500 rounded-xl">
       <form
         data-aos="fade-up"
         onSubmit={handleContact}
         className="card-body md:w-1/2 "
       >
         <p className="text-white text-center font-semibold">CONTACT WITH US</p>
-        <h2 className="text-5xl font-bold text-center text-white mb-5">
+        <h2 className="text-5xl font-bold text-center lg:pt-24 text-white mb-5">
           Send your email
         </h2>
         <div className="form-control ">

@@ -51,7 +51,7 @@ const Admission = () => {
 
      
       axios
-        .post("http://localhost:5000/students", data)
+        .post("https://mahad-al-hind-server.vercel.app/students", data)
         .then((res) => {
           console.log(res.data);
           if (res.data.insertedId) {
@@ -90,7 +90,7 @@ const Admission = () => {
 
   return (
     <div
-      className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen mt-28 lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}
+      className={`hero   bg-no-repeat bg-[url('/images/form_background.jpg')]  min-h-screen  lg:pt-0  md:max-w-7xl mx-auto bg-cover bg-center rounded-xl`}
     >
       <div className="hero-overlay bg-opacity-70"></div>
       <form
@@ -100,7 +100,7 @@ const Admission = () => {
       >
         {" "}
         <div className="text-center ">
-          <h1 className="text-5xl font-bold text-orange-500 shadow shadow-3xl shadow-white">
+          <h1 className="text-5xl lg:pt-32 font-bold text-orange-500 ">
             Student Admission Form
           </h1>
           <p className="py-6 text-white ">
