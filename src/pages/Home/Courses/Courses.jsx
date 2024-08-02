@@ -12,6 +12,7 @@ const Courses = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
+  
 
   return (
     <div className="mb-10 mt-32" id="courses">

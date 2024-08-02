@@ -14,7 +14,17 @@ const Category = () => {
         <h2 className="text-center font-bold text-5xl m-10 text-orange-500">Course Category</h2>
       <Swiper
           
-        slidesPerView={3}
+         breakpoints={{
+          640:{
+            slidesPerView: 1,
+          },
+          768:{
+            slidesPerView :2,
+          },
+          1024:{
+            slidesPerView:3
+          }
+         }}
         spaceBetween={30}
         centeredSlides={true}
         pagination={{ 
