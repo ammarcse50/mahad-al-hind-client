@@ -81,6 +81,7 @@ const NavBar = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 fill="none"
+                color="white"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
@@ -94,7 +95,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 gap-9"
+              className="menu menu-sm  dropdown-content  mt-3 z-[1] p-2 shadow bg-black bg-opacity-60 rounded-box w-52 gap-9"
             >
               {navlinks}
               <div className="w-6 rounded-full">

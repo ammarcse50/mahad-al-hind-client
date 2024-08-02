@@ -34,7 +34,7 @@ const Category = () => {
         className="mySwiper"
       >
         {courses.map((data) => (
-          <SwiperSlide key={data._id}>
+          <SwiperSlide className="" key={data._id}>
             {" "}
             <CategoryCard item={data}> </CategoryCard>{" "}
           </SwiperSlide>
