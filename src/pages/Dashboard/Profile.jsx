@@ -68,11 +68,7 @@ const Profile = () => {
      
     });
   };
-  if (isLoading) {
-    return (
-      <span className="loading loading-spinner loading-xl">Loading.....</span>
-    );
-  }
+ 
   return (
     <div className="min-h-screen p-10 space-y-4">
       <form onSubmit={handleUpdate} className="card-body">

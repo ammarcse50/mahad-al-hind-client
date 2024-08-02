@@ -68,6 +68,9 @@ const Footer = () => {
               </span>
             </Link>
           </div>
+          <input type="text" className="rounded-none input input-bordered border-black bg-gray-200" /> 
+           <h3 className="btn btn-warning">SUBSCRIBE</h3>
+           
         </nav>
       </footer>
       <div className="text-[#159e53] text-xl  flex flex-row gap-4 justify-center pb-3">

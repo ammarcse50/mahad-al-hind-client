@@ -6,8 +6,9 @@ const Main = () => {
   return (
     <div className="font-saira">
       <NavBar></NavBar>
+      
 
-      <div className=" mx-auto">
+      <div className="max-w-7xl mx-auto">
         <Outlet></Outlet>
       </div>
 

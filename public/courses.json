@@ -1,0 +1,26 @@
+[
+  {
+    "cover": "https://i.ibb.co/TDy0t7N/hafs.png",
+    "title": "Hafs an Asim",
+    "contact": "https://api.whatsapp.com/send?phone=919365262648&text=ww",
+    "desc": "যারা রেওয়াত হাফস এর বাসিক পডেছেন এবং সনদহীন তাদের জন্য বাধ্যতামূলক।"
+  },
+  {
+    "cover": "https://i.ibb.co/kg8cKQ6/saba.png",
+    "title": "Qira'at e Saba'a (القراءات السبع)",
+    "contact": "https://api.whatsapp.com/send?phone=919365262648&text=ww",
+    "desc": "যারা হাফস শেষ করেছেন এবং ধারাবাহিক সনদ লাভ করেছেন শুধু তাদের জন্য।"
+  },
+  {
+    "cover": "https://i.ibb.co/GtFrbwP/ashara.png",
+    "title": "Qira'at e Ashara (القراءات العشر)",
+    "contact": "https://api.whatsapp.com/send?phone=919365262648&text=ww",
+    "desc": "যারা কিরাত এ সাবা'র ধারাবাহিক সনদপ্রাপ্ত শুধু তাদের জন্য।"
+  },
+  {
+    "cover": "https://i.ibb.co/ZHcQdr4/single.png",
+    "title": "Single Rewayat",
+    "contact": "https://api.whatsapp.com/send?phone=919365262648&text=ww",
+    "desc": "যারা হাফস শেষ করেছেন এবং ধারাবাহিক সনদ লাভ করেছেন শুধু তাদের জন্য।"
+  }
+]

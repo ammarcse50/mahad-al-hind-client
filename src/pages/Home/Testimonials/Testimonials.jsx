@@ -1,4 +1,3 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,29 +8,27 @@ import "swiper/css/navigation";
 // import required modules
 import { Navigation } from "swiper/modules";
 import TestimonialCard from "./TestimonialCard/TestimonialCard";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../components/Hooks/useAxiosPublic";
 
 // import required modules
 
 const Testimonials = () => {
-  const [datas, setDatas] = useState([]);
+  const axiosPublic = useAxiosPublic();
+  const { data: datas = [] } = useQuery({
+    queryKey: ["datas"],
 
-  const [loading, setLoading]   = useState(true);
-
-  useEffect(() => {
-    fetch("reviews.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setDatas(data);
-      });
-    setLoading(false);
-  }, []);
-
-  if (loading) {
-    <progress className="progress w-56"></progress>;
-  }
+    queryFn: async () => {
+      const res = await axiosPublic.get("/reviews");
+      return res.data;
+    },
+  });
 
   return (
     <>
+      <h2 className="text-center font-bold text-5xl m-10 text-orange-500">
+        Testimonials of students
+      </h2>
       <Swiper
         navigation={true}
         loop={true}

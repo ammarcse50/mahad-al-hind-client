@@ -3,10 +3,15 @@ import useAuth from "./useAuth";
 import useAxiosSecure from "./useAxiosSecure";
 
 const useUsers = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: users = [], refetch ,isLoading } = useQuery({
+  const {
+    data: users = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["users", user?.email],
+    enabled: !loading,
 
     queryFn: async () => {
       const res = await axiosSecure.get(`/users?email=${user?.email}`);
@@ -14,8 +19,8 @@ const useUsers = () => {
       return res.data;
     },
   });
-  
-  return [users, refetch,isLoading];
+
+  return [users, refetch, isLoading];
 };
 
 export default useUsers;

@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@smastrom/react-rating": "^1.5.0",
-    "@tanstack/react-query": "^5.51.1",
+    "@tanstack/react-query": "^5.51.18",
+    "@tanstack/react-router": "^1.45.16",
     "aos": "^3.0.0-beta.6",
     "axios": "^1.6.8",
     "boxicons": "^2.1.4",
@@ -21,16 +22,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",
+    "react-headroom": "^3.2.1",
+    "react-hook-form": "^7.52.1",
     "react-icons": "^5.1.0",
     "react-responsive": "^10.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.3",
     "react-scroll-trigger": "^0.6.14",
     "react-scrollbar": "^0.5.6",
-    "react-toastify": "^10.0.5",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.12.2",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

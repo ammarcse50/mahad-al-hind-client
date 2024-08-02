@@ -6,8 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import app from "../../firebase/firebase.config";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAuth from "../Hooks/useAuth";
+import axios from "axios";
+import uploadImg from "/images/profile.png";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+const image_hosting_url = `https://api.imgbb.com/1/upload?key=31b8c3042470c9673a22cc6767e6a68f`;
 
 const Register = () => {
   const auth = getAuth(app);
@@ -19,26 +22,37 @@ const Register = () => {
     });
   }, []);
 
+  const axiosPublic = useAxiosPublic();
 
-   const axiosSecure = useAxiosSecure()
+  const { createAccount } = useAuth();
+  const handleIcon = () => {
+    document.getElementById("upload").click();
+  };
 
-  const { createAccount } = useAuth()
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
-
-
-    
 
     const form = e.target;
 
     const username = form.username.value;
-    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const imageFile = { image: e.target.upload.files[0] };
+    console.log(imageFile)
 
-    const data = { username, email, password ,photo};
+      //imgbb api call
+    const res = await axios.post(image_hosting_url, imageFile, {
+      headers: {
+        "content-Type": "multipart/form-data",
+      },
+    });
+    
+   console.log(res.data.data.display_url)
 
+     const photo =res.data.data.display_url;
+    const userInfo = { username, email, password, photo };
+    console.log(userInfo)
     createAccount(email, password)
       .then((res) => {
         const user = res.user;
@@ -49,8 +63,8 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
 
-    axiosSecure
-      .post("users", data)
+    axiosPublic
+      .post("/users", userInfo)
       .then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
@@ -86,18 +100,7 @@ const Register = () => {
             required
           />
         </div>
-        <div className="form-control ">
-          <label className="label">
-            <span className="label-text text-black">Photo Url</span>
-          </label>
-          <input
-            type="text"
-            name="photo"
-            placeholder="PhotoUrl link"
-            className="input input-bordered text-black  border-black bg-slate-100"
-            required
-          />
-        </div>
+
         <div className="form-control ">
           <label className="label">
             <span className="label-text text-black">Email</span>
@@ -121,14 +124,19 @@ const Register = () => {
             className="input input-bordered text-black border-black bg-slate-100"
             required
           />
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover text-black">
-              Forgot password?
-            </a>
-          </label>
+        </div>
+        <div className="form-control mt-6 flex">
+          <input type="file" id="upload"  name="upload" />
+          <img
+            onClick={handleIcon}
+            src={uploadImg}
+            id="upload"
+            className="w-[100px]"
+            alt=""
+          />
         </div>
         <div className="form-control mt-6">
-          <button  className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
+          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
             Register
           </button>
         </div>

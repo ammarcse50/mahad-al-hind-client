@@ -13,7 +13,6 @@ import Register from "./components/Common/Register";
 import Home from "../src/pages/Home/Home";
 import Courses from "../src/pages/Home/Courses/Courses";
 import Contact from "../src/pages/Contact/Contact";
-import StudentDashboard from "./pages/Dashboard/StudentDashboard";
 import Profile from "./pages/Dashboard/Profile";
 
 import PaymentHistory from "./pages/Dashboard/PaymentHistory";
@@ -21,7 +20,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 import CourseEnroll from "./pages/Dashboard/CourseEnroll";
 import Certificate from "./pages/Dashboard/Certificate";
-import PrivateRoutes from "./components/Common/PrivateRoutes/PrivateRoutes";
+import PrivateRoute from "./components/Common/PrivateRoutes/PrivateRoute";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Rating from "./pages/Dashboard/Rating";
+import AdminHome from "./pages/Dashboard/AdminDashboard/AdminHome";
+import ManageUser from "./pages/Dashboard/AdminDashboard/ManageUser";
+import AddCourse from "./pages/Dashboard/AdminDashboard/AddCourse";
+import AddCertificate from "./pages/Dashboard/AdminDashboard/AddCertificate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,18 +54,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/form",
-        element: <Admission></Admission> ,
+        element: <Admission></Admission>,
       },
       {
         path: "/dashboard",
-        element: <StudentDashboard></StudentDashboard>,
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "/dashboard",
             element: <Profile></Profile>,
           },
+          //only users
           {
-            path: "/dashboard/profile",
+            path: "/dashboard/userHome",
             element: <Profile></Profile>,
           },
 
@@ -69,13 +79,35 @@ const router = createBrowserRouter([
             element: <PaymentHistory></PaymentHistory>,
           },
           {
-            path: "/dashboard/courseenroll",
+            path: "/dashboard/course",
             element: <CourseEnroll></CourseEnroll>,
           },
           {
             path: "/dashboard/certificate",
             element: <Certificate></Certificate>,
           },
+          {
+            path: "/dashboard/rating",
+            element: <Rating></Rating>,
+          },
+          //only admin
+          {
+            path: "/dashboard/adminHome",
+            element: <AdminHome></AdminHome>,
+          },
+          {
+            path: "/dashboard/manageUser",
+            element: <ManageUser></ManageUser>,
+          },
+          {
+            path: "/dashboard/manageCourse",
+            element: <AddCourse></AddCourse>,
+          },
+          {
+            path: "/dashboard/manageCertificate",
+            element: <AddCertificate></AddCertificate>,
+          },
+          
         ],
       },
     ],

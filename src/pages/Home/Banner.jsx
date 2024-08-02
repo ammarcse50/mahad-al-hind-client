@@ -1,4 +1,4 @@
-import banner_1 from "/images/banner1.jpg";
+import banner_1 from "/images/slide1.png";
 import banner_2 from "/images/banner2.jpg";
 
 import AOS from "aos";
@@ -16,7 +16,7 @@ const Banner = () => {
     });
   }, []);
   return (
-    <Carousel autoPlay={1000} infiniteLoop={true}>
+    <Carousel className="w-full mb-52  h-[600px]" autoPlay={1000} infiniteLoop={true}>
       <div>
         <img src={banner_1} />
       </div>

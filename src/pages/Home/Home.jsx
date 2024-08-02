@@ -7,10 +7,10 @@ import { TbRadioactive } from "react-icons/tb";
 import { SiCodementor } from "react-icons/si";
 import { PiCertificate } from "react-icons/pi";
 import getCloserImg from "/images/getcloser.png";
-import platformImg from "/images/platform.png";
 import { Link } from "react-router-dom";
 import SectionTitle from "../../components/Common/SectionTitle/SectionTitle";
 import Testimonials from "./Testimonials/Testimonials";
+import Category from "./Category/Category";
 
 const Home = () => {
   return (
@@ -20,11 +20,9 @@ const Home = () => {
       <Banner></Banner>
 
       {/* Why You CHoose Us?  */}
-      <SectionTitle
-        heading={"Why You Choose Us?"}
-        subHeading={"Best Platform For Learning!"}
-      ></SectionTitle>
-      <div className="mt-4 p-6">
+      
+      <div className="p-6">
+      <h2 className="text-center font-bold text-5xl m-10 text-orange-500">Why choose us?</h2>
         <p className="text-center py-3">
           Learn Quran online with the correct method of Tajweed recitation. Our
           professional tutors with several years of experience are in a prime
@@ -51,12 +49,15 @@ const Home = () => {
           </span>
         </div>
 
+         
+
+         <Category></Category>
+
+
+
         {/* Review Off Student  */}
     
-        <SectionTitle
-          heading={"Testimonials"}
-          subHeading={"Reviews of students"}
-        ></SectionTitle>
+        
       <Testimonials></Testimonials>
 
         {/* Learn quran best tutor

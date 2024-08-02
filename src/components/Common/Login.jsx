@@ -1,13 +1,13 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "./AuthProvider";
-
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import useAuth from "../Hooks/useAuth";
 
 const Login = () => {
+
   useEffect(() => {
     // Initialize AOS when the component mounts
     AOS.init({
@@ -15,56 +15,62 @@ const Login = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-    const axiosPublic = useAxiosPublic();
-   // collecting path name for redirecting 
-      
-     const navigate = useNavigate();
-     const location = useLocation();
-     const from = location.state?.from?.pathname || "/";
+  const axiosPublic = useAxiosPublic();
+  // collecting path name for redirecting
 
-     console.log('location i came from',from)
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
+  console.log("location i came from", from);
 
-    
-  const { loginAccount, googleLogin } = useContext(AuthContext);
+  const { loginAccount, googleLogin } = useAuth();
 
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
-        const userInfo={
+        const userInfo = {
           email: result.user?.email,
           name: result.user?.displayName,
-          photo: result.user?.photoURL
-        }
-        axiosPublic.post('/users',userInfo)
-        .then(res=>{
-          console.log(res.data)
-          navigate('/')
-        })
+          // photo: result.user?.photoURL,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+          navigate("/");
+        });
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
-  const handleLogin = (e) => {
+
+    // image upload to  imgbb server
+ 
+     
+  const handleLogin = async(e) => {
     e.preventDefault();
+
+ 
 
     const form = e.target;
 
     const email = form.email.value;
     const password = form.password.value;
 
+
+
     loginAccount(email, password).then((res) => {
       console.log(res.user);
       alert(res.user.email, "is logged in");
 
-       navigate(from,{replace:true})
+      navigate("/", { replace: true });
+      form.reset();
     });
   };
   return (
     <div className="hero bg-[url('/images/login_background.jpg')] min-h-screen mt-10 md:max-w-4xl mx-auto  bg-orange-500 rounded-xl">
-     <div className="hero-overlay bg-opacity-70"></div>
+      <div className="hero-overlay bg-opacity-70"></div>
       <form
         data-aos="fade-up"
         onSubmit={handleLogin}
@@ -97,13 +103,18 @@ const Login = () => {
             required
           />
           <label className="label">
-            <a href="#" className="label-text-alt text-xl link link-hover text-white">
+            <a
+              href="#"
+              className="label-text-alt text-xl link link-hover text-white"
+            >
               Forgot password?
             </a>
           </label>
         </div>
+       
+
         <div className="form-control mt-6">
-          <button  className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] text-white text-xl">
+          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34] text-white text-xl">
             Login
           </button>
         </div>
@@ -124,7 +135,7 @@ const Login = () => {
             type="logo"
             color="rgba(9,242,46,0.99)"
           ></box-icon>
-          <span >Login With Google</span>
+          <span>Login With Google</span>
         </div>
       </form>
       <ToastContainer />

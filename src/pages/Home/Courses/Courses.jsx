@@ -1,11 +1,9 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import CourseCard from "./CourseCard";
 import Aos from "aos";
-
+import useCourses from "../../../components/Hooks/useCourses";
 const Courses = () => {
-  const [courses, setCourses] = useState([]);
-  const [isLoading, setLoading]= useState(true);
+  const [courses] = useCourses();
 
   useEffect(() => {
     // Initialize AOS when the component mounts
@@ -14,24 +12,6 @@ const Courses = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-
-  useEffect(() => {
-    axios
-      .get(
-        "http://localhost:5000/courses"
-      )
-      .then((res) => {
-         setLoading(true)
-        setCourses(res.data);
-        setLoading(false)
-
-      });
-  }, []);
-
-   if(isLoading)
-    {
-      <p>loading---</p>
-    }
 
   return (
     <div className="mb-10 mt-32" id="courses">
