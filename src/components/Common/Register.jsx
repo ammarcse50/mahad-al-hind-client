@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import authImg from '/images/authentication1.png'
 import AOS from "aos";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import app from "../../firebase/firebase.config";
@@ -84,76 +84,82 @@ const Register = () => {
   };
 
   return (
-    <div className="hero  min-h-screen  md:max-w-7xl mx-auto   rounded-xl">
-      <form
-        data-aos="fade-up"
-        onSubmit={handleRegister}
-        className="card-body md:w-1/2 "
-      >
-        <h2 className="text-3xl lg:pt-20 font-bold text-black text-center">
-         Create account Now!
-        </h2>
-        <div className="form-control ">
-          <label className="label">
-            <span className="label-text text-black">Username</span>
-          </label>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            className="input input-bordered text-black  border-black bg-slate-100"
-            required
-          />
-        </div>
+    <div className="flex w-full">  
+     <div className="hero  min-h-screen mx-auto md:w-1/2  rounded-xl">
+    <form
+      data-aos="fade-up"
+      onSubmit={handleRegister}
+      className="card-body md:w-full "
+    >
+      <h2 className="text-3xl lg:pt-20 font-bold text-black text-center">
+       Create account Now!
+      </h2>
+      <div className="form-control ">
+        <label className="label">
+          <span className="label-text text-black">Username</span>
+        </label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          className="input input-bordered text-black  border-black bg-slate-100"
+          required
+        />
+      </div>
 
-        <div className="form-control ">
-          <label className="label">
-            <span className="label-text text-black">Email</span>
-          </label>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            className="input input-bordered text-black  border-black bg-slate-100"
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text text-black">Password</span>
-          </label>
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            className="input input-bordered text-black border-black bg-slate-100"
-            required
-          />
-        </div>
-        <div className="form-control mt-6 flex">
-          <input type="file" id="upload" name="upload" />
-          <img
-            onClick={handleIcon}
-            src={uploadImg}
-            id="upload"
-            className="w-[100px]"
-            alt=""
-          />
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
-            Register
-          </button>
-        </div>
+      <div className="form-control ">
+        <label className="label">
+          <span className="label-text text-black">Email</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          placeholder="email"
+          className="input input-bordered text-black  border-black bg-slate-100"
+          required
+        />
+      </div>
+      <div className="form-control ">
+        <label className="label">
+          <span className="label-text text-black">Password</span>
+        </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          className="input input-bordered text-black border-black bg-slate-100 "
+          required
+        />
+      </div>
+      <div className="form-control mt-6 flex">
+        <input type="file" id="upload" name="upload" />
+        <img
+          onClick={handleIcon}
+          src={uploadImg}
+          id="upload"
+          className="w-[100px]"
+          alt=""
+        />
+      </div>
+      <div className="form-control mt-6 ">
+        <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
+          Register
+        </button>
+      </div>
 
-        <p className="text-black text-center mt-6 font-bold">
-          Already Register?{" "}
-          <Link to="/login" className="text-orange-500 font-semibold">
-            Login
-          </Link>
-        </p>
-      </form>
-    </div>
+      <p className="text-black text-center mt-6 font-bold">
+        Already Register?{" "}
+        <Link to="/login" className="text-orange-500 font-semibold">
+          Login
+        </Link>
+      </p>
+    </form>
+  </div>
+  <div className="md:w-1/2 pt-32 hidden lg:block"><img src={authImg} alt="" /></div>
+</div>
+ 
+
+
   );
 };
 

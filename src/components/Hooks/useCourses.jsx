@@ -9,7 +9,15 @@ const useCourses = () => {
       const res = await axiosPublic.get("/courses");
 
       return res.data;
+    }, 
+    retry:(failureCount,error)=>{
+      if(error?.response.status===404)
+      {
+        return false
+      }
+      return true
     },
+    refetchInterval: 1000
   });
 
   return [courses];
