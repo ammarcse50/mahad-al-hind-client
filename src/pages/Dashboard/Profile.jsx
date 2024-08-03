@@ -7,19 +7,21 @@ const Profile = () => {
   // const [students, setRecord] = useState([]);
 
   const { user } = useAuth();
-  const [students, refetch, isLoading] = useStudentsData();
+  const [students, refetch] = useStudentsData();
+
   console.log(students);
+
   const axiosSecure = useAxiosSecure();
 
   // destructuring students of fetch data
 
-  const id = students[0]?._id;
-  const first_name = students[0]?.first_name;
-  const last_name = students[0]?.last_name;
-  const number = students[0]?.number;
-  const gender = students[0]?.gender;
-  const address = students[0]?.address;
-  console.log(first_name);
+
+  const id = students._id;
+  const first_name = students.first_name;
+  const last_name = students.last_name;
+  const number = students.number;
+  const gender = students.gender;
+  const address = students.address;
 
  
   // submitting  updates
@@ -40,7 +42,7 @@ const Profile = () => {
 
  
 
-    axiosSecure.put(`/students/${id}`, data).then((result) => {   
+    axiosSecure.patch(`/students/${id}`, data).then((result) => {   
       refetch();
       Swal.fire({
         title: "Are you sure?",

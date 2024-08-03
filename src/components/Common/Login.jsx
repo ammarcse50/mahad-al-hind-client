@@ -18,10 +18,7 @@ const Login = () => {
   // collecting path name for redirecting
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-
-  console.log("location i came from", from);
+ 
 
   const { loginAccount, googleLogin } = useAuth();
 
@@ -56,13 +53,18 @@ const Login = () => {
 
     loginAccount(email, password).then((res) => {
       console.log(res.user);
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "You logged successfull",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+
+      if(res.user)
+      {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "You logged successfull",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    
 
       navigate("/", { replace: true });
       form.reset();

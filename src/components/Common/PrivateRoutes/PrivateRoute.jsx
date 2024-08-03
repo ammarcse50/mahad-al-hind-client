@@ -6,8 +6,11 @@ const PrivateRoute = ({ children }) => {
 
   //  const from = location.state?.from;
 
-  const { user } = useAuth();
-
+  const { user ,loading} = useAuth();
+   if(loading)
+   {
+    return <div className=" flex justify-center items-center h-screen"><span className="loading loading-ring loading-lg"></span></div> 
+   }
   if (user) {
     return children;
   }

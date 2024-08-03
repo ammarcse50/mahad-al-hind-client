@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import authImg from '/images/authentication1.png'
 import AOS from "aos";
@@ -23,6 +23,7 @@ const Register = () => {
 
   const axiosPublic = useAxiosPublic();
   const { createAccount ,googleLogin } = useAuth();
+  const navigate = useNavigate()
   const handleIcon = () => {
     document.getElementById("upload").click();
   };
@@ -72,15 +73,19 @@ const Register = () => {
     createAccount(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
-        sendEmailVerification(auth).then(() => {
+        if(res.user)
+        {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your Account has been check gmail",
+            title: "Your Account has been created! check your gmail",
             showConfirmButton: false,
             timer: 1500,
           });
+        }
+        console.log(user);
+        sendEmailVerification(auth).then(() => {
+         
           console.log("verification email send!");
         });
       })

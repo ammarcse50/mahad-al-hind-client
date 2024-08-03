@@ -3,7 +3,7 @@ import CourseCard from "./CourseCard";
 import Aos from "aos";
 import useCourses from "../../../components/Hooks/useCourses";
 const Courses = () => {
-  const [courses,isLoading] = useCourses();
+  const [courses] = useCourses();
 
   useEffect(() => {
     // Initialize AOS when the component mounts
@@ -12,8 +12,7 @@ const Courses = () => {
       easing: "ease-in-out", // Easing function
     });
   }, []);
-  if (isLoading) return <div>Loading...</div>;
-
+  
   return (
     <div className="mb-10" id="courses">
       <div

@@ -22,11 +22,14 @@ import CourseEnroll from "./pages/Dashboard/CourseEnroll";
 import Certificate from "./pages/Dashboard/Certificate";
 import PrivateRoute from "./components/Common/PrivateRoutes/PrivateRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Rating from "./pages/Dashboard/Rating";
 import AdminHome from "./pages/Dashboard/AdminDashboard/AdminHome";
 import ManageUser from "./pages/Dashboard/AdminDashboard/ManageUser";
-import AddCourse from "./pages/Dashboard/AdminDashboard/AddCourse";
-import AddCertificate from "./pages/Dashboard/AdminDashboard/AddCertificate";
+import ManageCourse from "./pages/Dashboard/AdminDashboard/ManageCourse";
+import RatingUser from "./pages/Dashboard/RatingUser";
+import AdminRoute from "./components/Common/PrivateRoutes/AdminRoute/AdminRoute";
+import ManageStudent from "./pages/Dashboard/AdminDashboard/ManageStudent";
+import ManageCertificate from "./pages/Dashboard/AdminDashboard/ManageCertificate";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -88,26 +91,49 @@ const router = createBrowserRouter([
           },
           {
             path: "/dashboard/rating",
-            element: <Rating></Rating>,
+            element: <RatingUser></RatingUser>,
           },
           //only admin
           {
             path: "/dashboard/adminHome",
-            element: <AdminHome></AdminHome>,
+            element: (
+              <AdminRoute>
+                <AdminHome></AdminHome>
+              </AdminRoute>
+            ),
           },
           {
             path: "/dashboard/manageUser",
-            element: <ManageUser></ManageUser>,
+            element: (
+              <AdminRoute>
+                <ManageUser></ManageUser>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/manageStudent",
+            element: (
+              <AdminRoute>
+                <ManageStudent></ManageStudent>
+              </AdminRoute>
+            ),
           },
           {
             path: "/dashboard/manageCourse",
-            element: <AddCourse></AddCourse>,
+            element: (
+              <AdminRoute>
+                <ManageCourse></ManageCourse>
+              </AdminRoute>
+            ),
           },
           {
             path: "/dashboard/manageCertificate",
-            element: <AddCertificate></AddCertificate>,
+            element: (
+              <AdminRoute>
+                <ManageCertificate></ManageCertificate>
+              </AdminRoute>
+            ),
           },
-          
         ],
       },
     ],

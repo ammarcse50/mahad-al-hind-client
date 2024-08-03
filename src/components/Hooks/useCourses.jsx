@@ -3,7 +3,7 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useCourses = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: courses = [] } = useQuery({
+  const { data: courses = [],refetch } = useQuery({
     queryKey: ["courses"],
     queryFn: async () => {
       const res = await axiosPublic.get("/courses");
@@ -20,7 +20,7 @@ const useCourses = () => {
     refetchInterval: 1000
   });
 
-  return [courses];
+  return [courses,refetch];
 };
 
 export default useCourses;

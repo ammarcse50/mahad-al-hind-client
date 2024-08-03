@@ -4,8 +4,10 @@ import { useEffect } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Admission = () => {
+  const axiosSecure = useAxiosSecure();
   useEffect(() => {
     // Initialize AOS when the component mounts
     Aos.init({
@@ -14,7 +16,7 @@ const Admission = () => {
     });
   }, []);
 
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
 
   // auth
@@ -23,10 +25,15 @@ const Admission = () => {
 
   const handleSubmitCourses = (e) => {
     e.preventDefault();
+     
+     if(!user)
+     {
+      navigate('/login')
+     }
 
     if (user && user?.email) {
-        // todo
-        
+      // todo
+
       const form = e.target;
 
       const first_name = form.first_name.value;
@@ -49,9 +56,8 @@ const Admission = () => {
         courses,
       };
 
-     
-      axios
-        .post("https://mahad-al-hind-server.vercel.app/students", data)
+      axiosSecure
+        .post("/students", data)
         .then((res) => {
           console.log(res.data);
           if (res.data.insertedId) {
@@ -64,29 +70,26 @@ const Admission = () => {
         })
         .catch((error) => console.log(error));
     }
-    
-    else {
 
-      Swal.fire({
-        title: "Your are not logged in",
-        text: "Please login to take admission!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes,Login!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          //send the user to the login
-         navigate('/login',{state:{from:location}})
-        }
-      });
-   
+    //   else {
 
+    //     Swal.fire({
+    //       title: "Your are not logged in",
+    //       text: "Please login to take admission!",
+    //       icon: "warning",
+    //       showCancelButton: true,
+    //       confirmButtonColor: "#3085d6",
+    //       cancelButtonColor: "#d33",
+    //       confirmButtonText: "Yes,Login!"
+    //     }).then((result) => {
+    //       if (result.isConfirmed) {
+    //         //send the user to the login
 
-      
-  }
-}
+    //       }
+    //     });
+
+    // }
+  };
 
   return (
     <div
@@ -213,5 +216,4 @@ const Admission = () => {
   );
 };
 
-
-export default Admission
+export default Admission;
