@@ -18,6 +18,8 @@ const NavBar = () => {
 
   const [isAdmin] = IsAdmin()
 
+     
+
   const [users] = useUsers();
 
   const handleLogOut = async () => {
