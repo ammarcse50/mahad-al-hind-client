@@ -153,7 +153,7 @@ const Profile = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-orange-400">Update</button>
+          <button className="btn md:text-3xl text-white bg-blue-400">Update</button>
         </div>
       </form>
     </div>

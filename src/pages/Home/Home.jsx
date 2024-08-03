@@ -91,7 +91,7 @@ const Home = () => {
             </p>
             <Link to="/form">
               {" "}
-              <button className="btn  bg-orange-400 bg-gradient-to-r from-orange-300 via-orange-500  to-orange-600 text-white text-xl">
+              <button className="btn  md:text-3xl text-white bg-blue-400">
                 Get Enrolled
               </button>
             </Link>

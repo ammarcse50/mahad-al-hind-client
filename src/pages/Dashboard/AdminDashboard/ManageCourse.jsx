@@ -73,7 +73,7 @@ const ManageCourse = () => {
           <img src={uploadImg} className="w-20" id="imgId" alt="" />
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-lime-500">Upload Course</button>
+          <button className="btn md:text-3xl text-white bg-blue-400">Upload Course</button>
         </div>
       </form>
     </div>  

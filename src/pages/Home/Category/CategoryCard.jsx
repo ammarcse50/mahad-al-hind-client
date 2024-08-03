@@ -10,7 +10,7 @@ const CategoryCard = ({ item }) => {
         <h2 className="card-title">{title}</h2>
         <p>{desc}</p>
         <div className="card-actions justify-end ">
-        <a href={contact}><button className="btn btn-primary">Enroll Now</button></a>
+        <a href={contact}><button className="btn md:text-3xl text-white bg-blue-400">Enroll Now</button></a>
           
         </div>
       </div>

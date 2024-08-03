@@ -207,7 +207,7 @@ const Admission = () => {
           </select>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-[#0ecb34] rounded-xl hover:shadow-xl hover:shadow-[#0ecb34]  text-white text-xl">
+          <button className="btn md:text-3xl text-white bg-blue-400">
             Submit
           </button>
         </div>

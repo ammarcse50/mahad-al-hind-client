@@ -25,8 +25,8 @@ const Certificate = () => {
         <a
           title="certificate"
           download={true}
-          href={certificate?.image}
-          className="btn bg-orange-500 text-white"
+          href={`${certificate?.image}`}
+          className="btn md:text-3xl text-white bg-blue-400 "
         >
           <TbFileCertificate size={50} className="text-center text-black" />{" "}
           Download

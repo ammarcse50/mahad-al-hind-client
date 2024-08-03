@@ -80,7 +80,7 @@ const RatingUser = () => {
         /></div>
          
           <div className="form-control mt-6">
-            <button className="btn bg-lime-600 text-white text-3xl">
+            <button className="btn md:text-3xl text-white bg-blue-400">
               ADD RATING
             </button>
           </div>

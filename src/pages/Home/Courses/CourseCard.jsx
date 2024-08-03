@@ -11,7 +11,7 @@ const CourseCard = ({course}) => {
           <p>{course.desc}</p>
           <div className="card-actions justify-end">
          
-           <Link to="/form"><button className="btn rounded-xl text-white bg-orange-600 hover:shadow-xl hover:shadow-[#0ecb34] hover:bg-[#0ecb34]">Enroll</button></Link>
+           <Link to="/form"><button className="btn md:text-3xl text-white bg-blue-400">Enroll</button></Link>
           </div>
         </div>
       </div>
