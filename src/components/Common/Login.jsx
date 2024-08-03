@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import AOS from "aos";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
@@ -25,6 +25,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
+         navigate('/')
         console.log(result.user);
         const userInfo = {
           email: result.user?.email,
@@ -32,8 +33,13 @@ const Login = () => {
           // photo: result.user?.photoURL,
         };
         axiosPublic.post("/users", userInfo).then((res) => {
+
+          if(res.data.insertedId)
+          {
+            navigate("/");
+          }
           console.log(res.data);
-          navigate("/");
+        
         });
       })
       .catch((error) => {
@@ -54,8 +60,6 @@ const Login = () => {
     loginAccount(email, password).then((res) => {
       console.log(res.user);
 
-      if(res.user)
-      {
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -63,10 +67,10 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-      }
+      
     
 
-      navigate("/", { replace: true });
+      navigate("/");
       form.reset();
     });
   };

@@ -106,7 +106,7 @@ const NavBar = () => {
              <div className="w-6 rounded-full">
                {user ? (
                  <>
-                   <img src={user?.photoURL} className="ml-12" alt="img" />{" "}
+                   <img src={user?.photoURL || users?.photo} className="ml-12" alt="img" />{" "}
                    <span className="">{user.email}</span>
                  </>
                ) : (
@@ -129,7 +129,7 @@ const NavBar = () => {
            {user ? (
              <img
                className="w-20 rounded-full"
-               src={user?.photoURL || users[0]?.photo}
+               src={user?.photoURL || users?.photo}
                alt="upload"
              />
            ) : (

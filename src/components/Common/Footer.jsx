@@ -69,7 +69,7 @@ const Footer = () => {
             </Link>
           </div>
           <input type="text" className="rounded-none input input-bordered border-black bg-gray-200" /> 
-           <h3 className="">SUBSCRIBE</h3>
+           <h3 className="btn btn-warning">SUBSCRIBE</h3>
            
         </nav>
       </footer>

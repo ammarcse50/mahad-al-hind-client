@@ -3,7 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { FaArchway, FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import {  FaArrowRight } from "react-icons/fa";
 const img_api =
   "https://api.imgbb.com/1/upload?key=31b8c3042470c9673a22cc6767e6a68f";
 const RatingUser = () => {

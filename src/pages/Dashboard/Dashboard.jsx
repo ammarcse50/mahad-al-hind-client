@@ -63,6 +63,16 @@ const Dashboard = () => {
                 <NavLink
                   style={navLinkStyle}
                   className={"flex items-center gap-2"}
+                  to={"/dashboard/manageMessage"}
+                >
+                  <FaBook />
+                  Manage Message
+                </NavLink>
+              </li>
+              <li className=" font-bold">
+                <NavLink
+                  style={navLinkStyle}
+                  className={"flex items-center gap-2"}
                   to={"/dashboard/manageCourse"}
                 >
                   <FaStar /> Manage Course

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import authImg from '/images/authentication1.png'
 import AOS from "aos";
@@ -13,6 +13,8 @@ const image_hosting_url = `https://api.imgbb.com/1/upload?key=31b8c3042470c9673a
 
 const Register = () => {
   const auth = getAuth(app);
+  // const location = useLocation()
+  const navigate =useNavigate();
   useEffect(() => {
     // Initialize AOS when the component mounts
     AOS.init({
@@ -23,7 +25,7 @@ const Register = () => {
 
   const axiosPublic = useAxiosPublic();
   const { createAccount ,googleLogin } = useAuth();
-  const navigate = useNavigate()
+ 
   const handleIcon = () => {
     document.getElementById("upload").click();
   };
@@ -73,8 +75,7 @@ const Register = () => {
     createAccount(email, password)
       .then((res) => {
         const user = res.user;
-        if(res.user)
-        {
+     
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -82,9 +83,10 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500,
           });
-        }
+         
         console.log(user);
         sendEmailVerification(auth).then(() => {
+         
          
           console.log("verification email send!");
         });
@@ -101,6 +103,7 @@ const Register = () => {
             text: "You clicked the button!",
             icon: "success",
           });
+          navigate('/')
         }
       })
       .catch((error) => console.log(error));

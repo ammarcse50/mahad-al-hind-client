@@ -11,7 +11,7 @@ const useUsers = () => {
     isPending: isLoading,
   } = useQuery({
     queryKey: ["users", user?.email],
-    enabled: !loading,
+    enabled: !!user && !loading,
 
     queryFn: async () => {
       const res = await axiosSecure.get(`/users?email=${user?.email}`);

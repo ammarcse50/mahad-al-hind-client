@@ -29,6 +29,7 @@ import RatingUser from "./pages/Dashboard/RatingUser";
 import AdminRoute from "./components/Common/PrivateRoutes/AdminRoute/AdminRoute";
 import ManageStudent from "./pages/Dashboard/AdminDashboard/ManageStudent";
 import ManageCertificate from "./pages/Dashboard/AdminDashboard/ManageCertificate";
+import ManageMessage from "./pages/Dashboard/AdminDashboard/ManageMessage";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +124,14 @@ const router = createBrowserRouter([
             element: (
               <AdminRoute>
                 <ManageCourse></ManageCourse>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/dashboard/manageMessage",
+            element: (
+              <AdminRoute>
+                <ManageMessage></ManageMessage>
               </AdminRoute>
             ),
           },

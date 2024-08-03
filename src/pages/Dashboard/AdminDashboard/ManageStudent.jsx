@@ -1,7 +1,6 @@
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useStudentsData from "../../../components/Hooks/useStudentsData";
-import useUsers from "../../../components/Hooks/useUsers";
 import useAxiosSecure from "../../../components/Hooks/useAxiosSecure";
 
 const ManageStudent = () => {
