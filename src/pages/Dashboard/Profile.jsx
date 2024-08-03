@@ -1,27 +1,27 @@
 import Swal from "sweetalert2";
-import useStudentsData from "../../components/Hooks/useStudentsData";
 import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
 import useAuth from "../../components/Hooks/useAuth";
+import useStudent from "../../components/Hooks/useStudent";
 
 const Profile = () => {
   // const [students, setRecord] = useState([]);
 
   const { user } = useAuth();
-  const [students, refetch] = useStudentsData();
+  const [student,refetch] =useStudent()
 
-  console.log(students);
+
 
   const axiosSecure = useAxiosSecure();
 
   // destructuring students of fetch data
 
 
-  const id = students._id;
-  const first_name = students.first_name;
-  const last_name = students.last_name;
-  const number = students.number;
-  const gender = students.gender;
-  const address = students.address;
+  const id = student._id;
+  const first_name = student.first_name;
+  const last_name = student.last_name;
+  const number = student.number;
+  const gender = student.gender;
+  const address = student.address;
 
  
   // submitting  updates
