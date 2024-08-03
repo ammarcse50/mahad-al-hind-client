@@ -68,8 +68,8 @@ const AdminHome = () => {
           <div className="stat-desc">↘︎</div>
         </div>
         <div className="stat bg-red-400 bg-gradient-to-t via-violet-400 from-black">
-          <div className="stat-title">Total Course</div>
-          <div className="stat-value">{courseCount.courseCount}</div>
+          <div className="stat-title text-white">Total Course</div>
+          <div className="stat-value text-white">{courseCount.courseCount}</div>
           <div className="stat-desc">↘</div>
         </div>
       </div>

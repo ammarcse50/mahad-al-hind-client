@@ -145,6 +145,7 @@ const ManageCertificate = () => {
         </form>
       </div>
       <div className="overflow-x-auto py-10">
+      <h2 className="text-center text-4xl font-bold text-lime-500 mb-10">All Certificates</h2>
         <table className="table">
           {/* head */}
           <thead className="bg-gray-200 rounded-lg">

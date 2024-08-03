@@ -3,6 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { FaArchway, FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 const img_api =
   "https://api.imgbb.com/1/upload?key=31b8c3042470c9673a22cc6767e6a68f";
 const RatingUser = () => {
@@ -43,11 +44,7 @@ const RatingUser = () => {
       <h2 className="text-center md:text-5xl font-bold">Give Your Rating</h2>
 
       <div className="card bg-base-100 md:w-1/2 mx-auto my-10 shrink-0 shadow-2xl">
-        <Rating
-          className="max-w-32 mx-auto"
-          value={0}
-          onChange={(e) => setRating(e)}
-        />
+     
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
             <label className="label">
@@ -76,6 +73,12 @@ const RatingUser = () => {
           <div className="form-control">
             <input type="file" name="upload" required />
           </div>
+          <div className="flex items-center font-semibold md:text-xl my-10">Click on starts  <FaArrowRight/> <Rating
+          className="max-w-32 mx-auto"
+          value={0}
+          onChange={(e) => setRating(e)}
+        /></div>
+         
           <div className="form-control mt-6">
             <button className="btn bg-lime-600 text-white text-3xl">
               ADD RATING
