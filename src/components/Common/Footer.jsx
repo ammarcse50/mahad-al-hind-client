@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../public/images/logo.png";
+import logo from "../../../public/images/logo.jpg";
 // import "boxicons";
 import { useEffect } from "react";
 
@@ -13,10 +13,10 @@ const Footer = () => {
     });
   }, []);
   return (
-    <div className="bg-base-200  w-full mt-32 p-4">
+    <div className="bg-sky bg-gradient-to-t via-violet-400 from-orange-400 w-full mt-32 p-4">
       <footer className="footer  max-w-7xl mx-auto font-bold text-base-content">
         <aside data-aos="fade-right" className="">
-          <img src={logo} className="md:w-20 w-24  md:ml-20 ml-32" alt="" />
+          <img src={logo} className="md:w-20 w-24 rounded  md:ml-20 ml-32" alt="" />
           <p className="ml-16 md:ml-0">
             Mahadul Qira'at Al Hind.
             <br />

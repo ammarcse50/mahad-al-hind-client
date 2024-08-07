@@ -16,7 +16,7 @@ const Banner = () => {
     });
   }, []);
   return (
-    <Carousel className="w-full  md:h-[600px]" autoPlay={1000} infiniteLoop={true}>
+    <Carousel className="w-full pt-28  md:h-[600px]" autoPlay={1000} infiniteLoop={true}>
       <div>
         <img src={banner_1} />
       </div>

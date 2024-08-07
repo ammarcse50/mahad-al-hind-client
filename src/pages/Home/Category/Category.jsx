@@ -9,7 +9,7 @@ const Category = () => {
   const [courses] = useCourses();
   console.log(courses)
   return (
-    <div className="mt-32 mb-32">
+    <div className="my-32 ">
 
         <h2 className="text-center font-bold text-5xl m-10 text-orange-500">Course Category</h2>
       <Swiper
@@ -34,7 +34,7 @@ const Category = () => {
         className="mySwiper"
       >
         {courses.map((data) => (
-          <SwiperSlide className="" key={data._id}>
+          <SwiperSlide className="z-1" key={data._id}>
             {" "}
             <CategoryCard item={data}> </CategoryCard>{" "}
           </SwiperSlide>

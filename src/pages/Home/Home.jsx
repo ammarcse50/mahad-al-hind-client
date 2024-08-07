@@ -18,6 +18,7 @@ const Home = () => {
     
 
       <Banner></Banner> 
+      
        <BreakingNews></BreakingNews>
 
       {/* Why You CHoose Us?  */}
