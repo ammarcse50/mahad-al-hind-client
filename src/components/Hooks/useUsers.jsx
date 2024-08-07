@@ -19,7 +19,7 @@ const useUsers = () => {
       return res.data;
     },
     retry: (failCount, error) => {
-      if (error.response?.status === 404) {
+      if (error) {
         return false;
       }
       return true;

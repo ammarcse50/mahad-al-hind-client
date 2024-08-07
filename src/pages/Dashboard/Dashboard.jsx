@@ -156,7 +156,7 @@ const Dashboard = () => {
           )}
         </ul>
       </div>
-      <div className="border md:w-2/3 lg:w-full px-5">
+      <div className="border md:w-2/3 lg:w-full  px-5">
         <Outlet></Outlet>
       </div>
     </div>

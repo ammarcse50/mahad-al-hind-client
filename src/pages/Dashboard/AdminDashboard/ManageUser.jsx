@@ -1,12 +1,39 @@
 import { FaTrashAlt, FaUser } from "react-icons/fa";
-import useUsers from "../../../components/Hooks/useUsers";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../components/Hooks/useAxiosSecure";
+import useAuth from "../../../components/Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
 
 const ManageUser = () => {
-  const [users, refetch] = useUsers();
-
+  // const [users, refetch, isLoading] = useUsers();
   const axiosSecure = useAxiosSecure();
+
+  const { user, loading } = useAuth();
+
+  const {
+    data: persons = [],
+    refetch,
+    isPending: isLoading,
+  } = useQuery({
+    queryKey: ["allUsers", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure.get("/allUsers");
+
+      return res.data;
+    },
+    retry: (failCount, error) => {
+      if (error?.response.status === 404) {
+        return false;
+      }
+      return true;
+    },
+    refetchInterval: 500,
+  });
+
+  if (isLoading || loading) {
+    return <div>Loading-----------</div>;
+  }
 
   const handleMakeAdmin = (user) => {
     Swal.fire({
@@ -33,7 +60,7 @@ const ManageUser = () => {
     });
   };
 
-  const handleDelete = (user) => {
+  const handleDelete = (person) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -44,7 +71,7 @@ const ManageUser = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/users/${user._id}`).then((res) => {
+        axiosSecure.delete(`/users/${person._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
@@ -72,29 +99,28 @@ const ManageUser = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr key={user._id}>
+            {persons?.map((person, index) => (
+              <tr key={person._id}>
                 <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user?.email}</td>
+                <td>{person?.name}</td>
+                <td>{person?.email}</td>
 
                 <td>
-                  <td>
-                    {user.role === "admin" ? (
-                      "Admin"
-                    ) : (
-                      <button
-                        onClick={() => handleMakeAdmin(user)}
-                        className="btn btn-error"
-                      >
-                        <FaUser size={20}></FaUser>
-                      </button>
-                    )}
-                  </td>
+                  {person?.role === "admin" ? (
+                    "Admin"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeAdmin(person)}
+                      className="btn btn-error"
+                    >
+                      <FaUser size={20}></FaUser>
+                    </button>
+                  )}
                 </td>
+
                 <td>
                   <button
-                    onClick={() => handleDelete(user)}
+                    onClick={() => handleDelete(person)}
                     className="btn btn-error"
                   >
                     <FaTrashAlt size={20}></FaTrashAlt>
