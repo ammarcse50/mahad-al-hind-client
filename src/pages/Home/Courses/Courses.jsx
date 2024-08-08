@@ -14,10 +14,10 @@ const Courses = () => {
   }, []);
   
   return (
-    <div className="mb-10" id="courses">
+    <div className="mb-10 " id="courses">
       <div
         data-aos="fade-down"
-        className="md:text-5xl lg:pt-32 text-3xl space-y-3 text-center"
+        className="md:text-5xl pt-32 text-3xl space-y-3 text-center"
       >
         <h2 className="" data-aos="fade-right  ">OUR QIRAAT COURSES</h2>
         <h2 data-aos="fade-left  ">(মা'হাদের কোর্সসমূহ)</h2>
@@ -25,7 +25,7 @@ const Courses = () => {
 
       <div
         data-aos="fade-up"
-        className="grid md:grid-cols-3 gap-10 p-5 md:p-0 md:mt-10"
+        className="grid xl:grid-cols-3 gap-20  md:grid-cols-2 gap-y-10 mx-auto  px-auto  mt-10"
       >
         {courses.map((course) => (
           <CourseCard key={course.id} course={course}></CourseCard>

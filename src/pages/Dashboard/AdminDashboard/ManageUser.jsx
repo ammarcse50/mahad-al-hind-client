@@ -28,11 +28,11 @@ const ManageUser = () => {
       }
       return true;
     },
-    refetchInterval: 500,
+    refetchInterval: 1000,
   });
 
   if (isLoading || loading) {
-    return <div>Loading-----------</div>;
+    return <div className="top-[50%] flex justify-center items-center"><span className="loading loading-bars loading-lg"></span></div>;
   }
 
   const handleMakeAdmin = (user) => {

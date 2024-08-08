@@ -4,7 +4,7 @@ const CourseCard = ({course}) => {
 
        const {cover,title,desc,contact}= course
     return (
-        <div  className="card w-96bg-base-100 rounded-xl shadow-xl border  border-orange-400 ">
+        <div  className="card lg:w-96 w-80 mx-auto bg-base-100 rounded-xl shadow-xl border border-orange-400 ">
         <figure className='px-10 pt-10 '><img className="rounded-xl" src={course.cover}/></figure>
         <div className="card-body">
           <h2 className="card-title">{course.title}</h2>
