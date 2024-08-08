@@ -16,15 +16,17 @@ const Banner = () => {
     });
   }, []);
   return (
-    <Carousel className="w-full pt-28  md:h-[600px]" autoPlay={1000} infiniteLoop={true}>
-   
+    <Carousel
+      className="w-full pt-28  md:h-[600px]"
+      autoPlay={1000}
+      infiniteLoop={true}
+    >
       <div>
         <img src={banner_1} />
-        <div className="absolute w-full md:h-[600px] bg-gradient-to-r from-black bg-opacity-70 z-50"/>
       </div>
-      <div>
-        <img src={banner_2} className="relative"/>
-       
+
+      <div className="relative">
+        <img src={banner_2} className="relative" />
       </div>
     </Carousel>
   );

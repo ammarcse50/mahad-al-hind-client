@@ -5,6 +5,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import authImg from "/images/authentication1.png";
+import { FaHome } from "react-icons/fa";
 
 const Login = () => {
   useEffect(() => {
@@ -142,9 +143,13 @@ const Login = () => {
               color="rgba(9,242,46,0.99)"
             ></box-icon>
             <span>Login With Google</span>
+         
           </div>
+      <Link to={"/"} className="flex items-center justify-center text-black font-bold btn w-1/3 mx-auto btn-outline "><FaHome className="mr-2"/> Go To Home</Link>    
         </form>
+        
       </div>
+  
       <div className="md:w-1/2 pt-32 hidden lg:block">
         <img src={authImg} alt="" />
       </div>
