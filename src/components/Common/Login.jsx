@@ -5,7 +5,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
 import Swal from "sweetalert2";
 import authImg from "/images/authentication1.png";
-import { FaHome } from "react-icons/fa";
+import { FaGoogle, FaHome } from "react-icons/fa";
 
 const Login = () => {
   useEffect(() => {
@@ -133,23 +133,17 @@ const Login = () => {
             </Link>
           </p>
 
-          <div
-            onClick={handleGoogleLogin}
-            className="border border-white text-white rounded-lg flex items-center justify-center gap-3 font-bold  p-3 mt-10 bg-[#cb7728]  hover:shadow-xl hover:shadow-[#0ecb34]"
-          >
-            <box-icon
-              name="google"
-              type="logo"
-              color="rgba(9,242,46,0.99)"
-            ></box-icon>
-            <span>Login With Google</span>
-         
+          <div  className="flex items-center justify-center pt-5 ">
+          
+            <span onClick={handleGoogleLogin}>
+            
+              <img src="/images/google.png" className="w-20" alt="" />
+            </span>
+            <Link to={"/"} className="flex items-center justify-center text-black font-bold  "><FaHome className="text-red-500" size={35}/> </Link>  
           </div>
-      <Link to={"/"} className="flex items-center justify-center text-black font-bold btn w-1/3 mx-auto btn-outline "><FaHome className="mr-2"/> Go To Home</Link>    
         </form>
-        
       </div>
-  
+
       <div className="md:w-1/2 pt-32 hidden lg:block">
         <img src={authImg} alt="" />
       </div>

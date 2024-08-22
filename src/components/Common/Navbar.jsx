@@ -10,7 +10,7 @@ const navLinkStyle = ({ isActive }) => ({
   backgroundColor: isActive ? "lime" : "transparent",
   borderRadius: "4px",
   padding: "4px",
-  color: "white",
+  color: "black",
 });
 
 const NavBar = () => {
@@ -79,7 +79,7 @@ const NavBar = () => {
 
   return (
     <Headroom className="z-50 absolute w-full">
-      <div className="navbar w-full bg-blue-400 bg-gradient-to-t  via-violet-400 from-orange-300  font-bold bg-opacity-30 lg:shadow-xl text-center  ">
+      <div className="navbar w-full font-bold bg-opacity-30 lg:shadow-xl text-center  ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
