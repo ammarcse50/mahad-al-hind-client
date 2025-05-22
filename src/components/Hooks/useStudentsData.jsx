@@ -12,7 +12,7 @@ const useStudentsData = () => {
     queryKey: ["students", user?.email],
     enabled: !!isAdmin && !!user ,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/students`);
+      const res = await axiosSecure.get(`/api/students/students`);
       return res.data;
     },
   });

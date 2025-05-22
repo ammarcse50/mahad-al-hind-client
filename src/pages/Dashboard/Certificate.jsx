@@ -10,7 +10,7 @@ const Certificate = () => {
   const { data: certificate = [] } = useQuery({
     queryKey: ["certificate"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/certificate/${user?.email}`);
+      const res = await axiosSecure.get(`/api/certificates/certificate/${user?.email}`);
       return res.data;
     },
   });

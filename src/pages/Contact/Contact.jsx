@@ -47,7 +47,7 @@ const Contact = () => {
   return (
     <div className="md:pt-32">  
 
-           <h2 className="md:text-4xl font-semibold text-center text-sky-500 mb-3">Contact US!</h2>
+           <h2 className="md:text-4xl font-semibold text-center text-red-500 mb-3">Contact US!</h2>
            <div className="divider w-1/4 mx-auto border border-sky-500"></div>
          <div className="hidden md:block ">
           <iframe

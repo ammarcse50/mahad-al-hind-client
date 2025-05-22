@@ -26,7 +26,7 @@ const RatingUser = () => {
     const image = res.data.data.display_url;
     const review = { name, testimonial, rating, image };
 
-    axiosSecure.post("/reviews", review).then((res) => {
+    axiosSecure.post("/api/review/reviews", review).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",

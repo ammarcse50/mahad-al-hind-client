@@ -9,7 +9,7 @@ const useStudent = () => {
     queryKey: ["student"],
     enabled:!!user && !loading ,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/students/${user?.email}`);
+      const res = await axiosSecure.get(`/api/students/students/${user?.email}`);
       return res.data;
     },
   });

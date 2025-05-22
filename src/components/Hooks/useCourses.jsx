@@ -7,7 +7,7 @@ const useCourses = () => {
     queryKey: ["courses"],
 
     queryFn: async () => {
-      const res = await axiosPublic.get("/courses");
+      const res = await axiosPublic.get("/api/courses/courses");
 
       return res.data;
     },

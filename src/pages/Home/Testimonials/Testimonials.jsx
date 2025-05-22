@@ -33,7 +33,7 @@ const Testimonials = () => {
 
   return (
     <>
-      <h2 className="text-center font-bold text-5xl m-10 text-orange-500">
+      <h2 className="font-bold md:text-5xl text-3xl m-10 text-center md:block text-primary">
         Testimonials of students
       </h2>
       <Swiper

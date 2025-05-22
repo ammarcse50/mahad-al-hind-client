@@ -7,11 +7,11 @@ import useCourses from "../../../components/Hooks/useCourses";
 import CategoryCard from "./CategoryCard";
 const Category = () => {
   const [courses] = useCourses();
-  console.log(courses)
+
   return (
     <div className="my-32 ">
 
-        <h2 className="text-center font-bold text-5xl m-10 text-orange-500">Course Category</h2>
+        <h2 className="text-center md:block font-bold text-3xl md:text-5xl m-10 text-primary">Course Category</h2>
       <Swiper
           
          breakpoints={{
@@ -31,10 +31,10 @@ const Category = () => {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="mySwiper "
       >
         {courses.map((data) => (
-          <SwiperSlide className="z-1" key={data._id}>
+          <SwiperSlide className="z-1 " key={data._id}>
             {" "}
             <CategoryCard item={data}> </CategoryCard>{" "}
           </SwiperSlide>

@@ -5,159 +5,154 @@ import { FaBook, FaCertificate, FaHome, FaStar } from "react-icons/fa";
 import IsAdmin from "../../components/Hooks/IsAdmin";
 
 const navLinkStyle = ({ isActive }) => ({
-  backgroundColor: isActive ? "lime" : "transparent",
+  backgroundColor: isActive ? "red" : "transparent",
   borderRadius: "4px",
   padding: "4px",
 });
 
 const Dashboard = () => {
-  const [isAdmin ]= IsAdmin();
-
+  const [isAdmin] = IsAdmin();
   const { user } = useAuth();
-
   const [students] = useStudentsData();
-  console.log(students);
-
-  // console.log(students);
-  // const first_name = students[0]?.first_name;
-  // const last_name = students[0]?.last_name;
 
   return (
-    <div className="w-full md:flex">
-      <div className="min-h-screen bg-black bg-gradient-to-t via-blue-400 from-slate-500 md:w-1/4  text-center ">
-        <ul className="flex flex-col justify-center items-center text-xl gap-5 pt-32">
-          <img src={user?.photoURL} className="mx-auto" alt="" />
-          {isAdmin ? (
-            <>
-              {" "}
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={`flex items-center gap-2`}
-                  to={"/dashboard/adminHome"}
-                >
-                  <FaHome /> Admin Home
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/manageUser"}
-                >
-                  <FaBook />
-                  Manage Users
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/manageStudent"}
-                >
-                  <FaBook />
-                  Manage Students
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/manageMessage"}
-                >
-                  <FaBook />
-                  Manage Message
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/manageCourse"}
-                >
-                  <FaStar /> Manage Course
-                </NavLink>
-              </li>
-             
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/manageCertificate"}
-                >
-                  <FaCertificate />
-                  Manage Certificate
-                </NavLink>
-              </li>
-              <div className="divider"></div>
-              <li className="font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/"}
-                >
-                  <FaHome />
-                  Home
-                </NavLink>
-              </li>{" "}
-            </>
-          ) : (
-            <>
-              {" "}
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={`flex items-center gap-2`}
-                  to={"/dashboard/userHome"}
-                >
-                  <FaHome /> User Home
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/course"}
-                >
-                  <FaBook /> User Course
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/rating"}
-                >
-                  <FaStar /> Add Rating
-                </NavLink>
-              </li>
-              <li className=" font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/dashboard/certificate"}
-                >
-                  <FaCertificate />
-                Your  Certificate
-                </NavLink>
-              </li>
-              <div className="divider"></div>
-              <li className="font-bold">
-                <NavLink
-                  style={navLinkStyle}
-                  className={"flex items-center gap-2"}
-                  to={"/"}
-                >
-                  <FaHome />
-                  Home
-                </NavLink>
-              </li>{" "}
-            </>
-          )}
-        </ul>
+    <div className="w-full flex">
+      {/* Sidebar */}
+      <div className="bg-black bg-gradient-to-t via-blue-400 from-slate-500 text-white min-h-screen w-full md:w-1/4 p-4 md:p-6 text-center">
+        <div className="flex flex-col items-center">
+          {/* User Profile */}
+          <img
+            src={user?.photoURL || "/default-profile.png"}
+            className="rounded-full w-20 h-20 md:w-24 md:h-24 object-cover mb-4"
+            alt="User Profile"
+          />
+          {/* Navigation */}
+          <ul className="flex flex-col items-center gap-4 text-sm md:text-base">
+            {isAdmin ? (
+              <>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/adminHome"}
+                  >
+                    <FaHome className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Admin Home</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/manageUser"}
+                  >
+                    <FaBook className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Manage Users</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/manageStudent"}
+                  >
+                    <FaBook className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Manage Students</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/manageMessage"}
+                  >
+                    <FaBook className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Manage Message</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/manageCourse"}
+                  >
+                    <FaStar className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Manage Course</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/manageCertificate"}
+                  >
+                    <FaCertificate className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Manage Certificate</span>
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/userHome"}
+                  >
+                    <FaHome className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">User Home</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/course"}
+                  >
+                    <FaBook className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">User Course</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/rating"}
+                  >
+                    <FaStar className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Add Rating</span>
+                  </NavLink>
+                </li>
+                <li className="font-bold">
+                  <NavLink
+                    style={navLinkStyle}
+                    className="flex items-center gap-2"
+                    to={"/dashboard/certificate"}
+                  >
+                    <FaCertificate className="text-2xl md:text-xl" />
+                    <span className="hidden md:block">Your Certificate</span>
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {/* Common Home Link */}
+            <div className="divider"></div>
+            <li className="font-bold">
+              <NavLink
+                style={navLinkStyle}
+                className="flex items-center gap-2"
+                to={"/"}
+              >
+                <FaHome className="text-2xl md:text-xl" />
+                <span className="hidden md:block">Home</span>
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="border md:w-2/3 lg:w-full  px-5">
-        <Outlet></Outlet>
+      {/* Main Content */}
+      <div className="flex-1 bg-white border md:p-5">
+        <Outlet />
       </div>
     </div>
   );

@@ -12,8 +12,8 @@ const Main = () => {
     <div className="font-saira">
     { noHeaderFooter || <NavBar></NavBar>}
       
-
-      <div className="mx-auto">
+    
+      <div className="max-w-7xl mx-auto">
         <Outlet></Outlet>
       </div>
 

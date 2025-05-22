@@ -1,4 +1,4 @@
-import enrollPic from "/images/enrollPic.png";
+import enrollPic from "/images/47768.jpg";
 import useStudent from "../../components/Hooks/useStudent";
 
 const CourseEnroll = () => {

@@ -30,6 +30,7 @@ import AdminRoute from "./components/Common/PrivateRoutes/AdminRoute/AdminRoute"
 import ManageStudent from "./pages/Dashboard/AdminDashboard/ManageStudent";
 import ManageCertificate from "./pages/Dashboard/AdminDashboard/ManageCertificate";
 import ManageMessage from "./pages/Dashboard/AdminDashboard/ManageMessage";
+import CertificateChecker from "./components/CertificateChecker";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: <Admission></Admission>,
+      },
+      {
+        path: "/Checker",
+        element: <CertificateChecker></CertificateChecker>,
       },
       {
         path: "/dashboard",

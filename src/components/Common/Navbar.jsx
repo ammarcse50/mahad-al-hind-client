@@ -1,149 +1,173 @@
-import logo from "../../../public/images/logo.jpg";
+import { useEffect, useState } from "react";
+import logo from "/images/green.png";
 import { Link, NavLink } from "react-router-dom";
 import { RiContactsFill } from "react-icons/ri";
 import profile from "/images/profile.png";
 import useAuth from "../Hooks/useAuth";
 import useUsers from "../Hooks/useUsers";
-import Headroom from "react-headroom";
 import IsAdmin from "../Hooks/IsAdmin";
-const navLinkStyle = ({ isActive }) => ({
-  backgroundColor: isActive ? "lime" : "transparent",
-  borderRadius: "4px",
-  padding: "4px",
-  color: "black",
-});
+const navLinkStyle = ({ isActive }) => {
+  const isMobile = window.innerWidth < 1024; // lg breakpoint
+
+  return {
+    backgroundColor: isActive ? '#159e53' : 'transparent',
+    borderRadius: '4px',
+    padding: '4px 8px',
+    color: isMobile ? '#ffffff' : (isActive ? '#fff' : '#222'), // white for mobile
+    fontWeight: '500',
+    textDecoration: 'none',
+  };
+};
+
 
 const NavBar = () => {
   const { logOut, user } = useAuth();
-
   const [isAdmin] = IsAdmin();
-
   const [users] = useUsers();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLogOut = async () => {
     await logOut()
       .then(() => console.log("user logged out successfully"))
       .catch((error) => console.error(error));
   };
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 1024);
+
+useEffect(() => {
+  const handleResize = () => {
+    setIsMobileView(window.innerWidth < 1024);
+  };
+
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navlinks = (
-    <>
-      <li className="text-xl">
-        {" "}
-        <NavLink to="/" style={navLinkStyle}>
-          Home
-        </NavLink>
-      </li>
-      <li className="text-xl">
-        {" "}
-        <NavLink to="/courses" style={navLinkStyle}>
-          Courses
-        </NavLink>
-      </li>
-      <li className="text-xl">
-        <NavLink to="/form" style={navLinkStyle}>
-          Admission Form
-        </NavLink>
-      </li>
-      <li className="text-xl">
-        {" "}
-        <NavLink to="/contact" style={navLinkStyle}>
-          Contact
-        </NavLink>
-      </li>
-      {user ? (
-        <>
-          <a onClick={handleLogOut} className="text-xl text-white">
+  <>
+    <li>
+      <NavLink to="/" style={navLinkStyle}>Home</NavLink>
+    </li>
+    <li>
+      <NavLink to="/courses" style={navLinkStyle}>Courses</NavLink>
+    </li>
+    <li>
+      <NavLink to="/form" style={navLinkStyle}>Admission Form</NavLink>
+    </li>
+    <li>
+      <NavLink to="/checker" style={navLinkStyle}>Check Certificate</NavLink>
+    </li>
+    <li>
+      <NavLink to="/contact" style={navLinkStyle}>Contact</NavLink>
+    </li>
+
+    {user ? (
+      <>
+        <li>
+          <a onClick={handleLogOut} className="cursor-pointer" style={{ ...navLinkStyle({ isActive: false }) }}>
             Sign out
           </a>
-          <a className="text-black text-xl">
-            {" "}
-            <NavLink
-              to={isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"}
-              style={navLinkStyle}
-            >
-              My Dashboard
-            </NavLink>
-          </a>
-        </>
-      ) : (
-        <li className="text-xl ">
-          {" "}
-          <NavLink to="/login" style={navLinkStyle}>
-            Login
+        </li>
+        <li>
+          <NavLink
+            to={isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"}
+            style={navLinkStyle}
+          >
+            My Dashboard
           </NavLink>
         </li>
-      )}
-    </>
-  );
+      </>
+    ) : (
+      <li>
+        <NavLink to="/login" style={navLinkStyle}>Login</NavLink>
+      </li>
+    )}
+  </>
+);
+
 
   return (
-    <Headroom className="z-50 absolute w-full">
-      <div className="navbar w-full font-bold bg-opacity-30 lg:shadow-xl text-center  ">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                color="white"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm  dropdown-content  mt-3 z-[1] p-2 shadow bg-black bg-opacity-60 rounded-box w-52 gap-9"
-            >
-              {navlinks}
-              <div className="rounded-full w-6">
-                {user ? (
-                  <>
-                    <img
-                      src={user?.photoURL || users?.photo}
-                      className="ml-12"
-                      alt="img"
-                    />{" "}
-                    <span className="">{user.email}</span>
-                  </>
-                ) : (
-                  <RiContactsFill className="text-[#18f90c]" />
-                )}
-              </div>
-            </ul>
-          </div>
-          <Link to="/" className="bg-white-100">
-            <img src={logo} className="w-20 rounded-full" alt="" />
-          </Link>
-        </div>
-        <div className="navbar hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-7">{navlinks}</ul>
-        </div>
+    <div
+      className={`navbar fixed top-0 w-full font-bold  z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-whiteist bg-opacity-40 backdrop-blur-md' : 'bg-whiteistS'
+      }`}
+    >
+      {/* Mobile Navbar Start */}
+      <div className="w-full flex items-center justify-between px-4 lg:hidden">
+        {/* Logo - Left */}
+        <Link to="/" className="flex items-center py-2">
+          <img src={logo} className="w-12 md:w-20 rounded-full" alt="Logo" />
+        </Link>
 
-        <div className=" hidden lg:flex">
-          <Link to={"/dashboard/userHome"}>
-            {" "}
-            {user ? (
-              <img
-                className="w-20 rounded-full"
-                src={user?.photoURL || users?.photo}
-                alt="upload"
-              />
-            ) : (
-              <img src={profile} className="h-20 rounded-full" />
-            )}
-          </Link>
+        {/* Dropdown Menu - Right */}
+        <div className="dropdown">
+          <button tabIndex={0} className="btn btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+<ul
+  tabIndex={0}
+  className="menu menu-sm dropdown-content right-0 mt-3 p-4 shadow bg-black bg-opacity-90 backdrop-blur-md rounded-box w-56 gap-4 z-50 text-white"
+>
+
+            {navlinks}
+            <div className="rounded-full w-6">
+              {user ? (
+                <>
+                  <img src={user?.photoURL || users?.photo} className="ml-12" alt="User" />
+                  <span className="text-white text-sm">{user.email}</span>
+                </>
+              ) : (
+                <RiContactsFill className="text-[#18f90c]" />
+              )}
+            </div>
+          </ul>
         </div>
       </div>
-    </Headroom>
+
+      {/* Desktop Navbar */}
+    <div className="hidden lg:flex items-center justify-between w-full px-6">
+  {/* Left: Logo */}
+  <div className="flex-shrink-0">
+    <Link to="/" className="flex items-center py-2">
+      <img src={logo} className="w-16 rounded-full" alt="Logo" />
+    </Link>
+  </div>
+
+  {/* Center: Nav Links */}
+  <div className="flex-1 flex justify-center">
+    <ul className="menu menu-horizontal gap-4">{navlinks}</ul>
+  </div>
+
+  {/* Right: Profile Icon */}
+  <div className="flex-shrink-0">
+    <Link to={isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"}>
+      {user ? (
+        <img className="w-12 h-12 object-cover rounded-full" src={user?.photoURL || users?.photo} alt="User" />
+      ) : (
+        <img src={profile} className="w-12 h-12 object-cover rounded-full" alt="Profile" />
+      )}
+    </Link>
+  </div>
+</div>
+
+    </div>
   );
 };
 

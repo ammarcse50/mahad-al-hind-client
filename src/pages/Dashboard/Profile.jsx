@@ -42,7 +42,7 @@ const Profile = () => {
 
  
 
-    axiosSecure.put(`/students/${email}`, data).then((result) => {   
+    axiosSecure.put(`/api/students/students/${email}`, data).then((result) => {   
       refetch();
       Swal.fire({
         title: "Are you sure?",
